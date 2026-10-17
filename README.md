@@ -1,10 +1,13 @@
 # SKY::SHARD
 
-一个极简、极客风格的光遇红黑石时刻表。支持**国服**与**国际服**，同时计算红石与黑石。纯静态、零依赖，所有时间由本机按确定性规则推导，不请求后端接口。
+一个极简、极客风格的光遇红黑石时刻表。支持**国服**与**国际服**（含主机 / PC 等全球服平台），同时计算红石与黑石。纯静态、零依赖，所有时间由本机按确定性规则推导，不请求后端接口。
 
-**在线使用：** <https://yegh2.github.io/sky-shard/>
+**在线使用：** <https://yegh2.github.io/sky-shard/>  
+**国际服直达：** <https://yegh2.github.io/sky-shard/?server=intl>
 
 ![桌面预览](preview/desktop.png)
+
+黑石状态：[preview/black.png](preview/black.png)
 
 ## 功能
 
