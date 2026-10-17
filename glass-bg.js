@@ -96,6 +96,10 @@
       caustic = pow(caustic, 8.0);
       col += vec3(0.14, 0.24, 0.42) * caustic * 0.65;
 
+      float ribbons = abs(sin(q.x * 96.0 + n * 24.0 + t * 3.2) * sin(q.y * 84.0 - n * 20.0 - t * 2.6));
+      ribbons = pow(ribbons, 16.0);
+      col += vec3(0.08, 0.13, 0.24) * ribbons * 0.28;
+
       col *= smoothstep(1.45, 0.22, length(p));
       col += (hash(gl_FragCoord.xy + t) - 0.5) * 0.012;
 
@@ -148,28 +152,37 @@
       if (alpha <= 0.0) discard;
 
       vec2 uv = gl_FragCoord.xy / u_res;
+      vec2 panelCenter = (u_rect.xy + u_rect.zw * 0.5) / u_res;
       vec2 n = p / max(halfSize, vec2(1.0));
       float nLength = length(n);
       n = nLength > 0.0001 ? n / nLength : vec2(0.0);
-      float edge = 1.0 - smoothstep(0.0, 20.0, -d);
-      vec2 offset = n * edge * 0.011;
+      float edge = 1.0 - smoothstep(0.0, 24.0, -d);
+      vec2 offset = n * edge * 0.016;
+      vec2 lensUv = panelCenter + (uv - panelCenter) * 0.94;
 
       vec3 base = blurSample(uv, 7.0);
-      vec3 refracted = blurSample(uv + offset, 3.5);
-      vec3 col = mix(base, refracted, edge * 0.72);
+      vec3 lens = blurSample(lensUv, 8.0);
+      vec3 refracted = blurSample(uv + offset, 4.0);
+      vec3 col = mix(base, lens, 0.16);
+      col = mix(col, refracted, edge * 0.65);
 
-      float ca = edge * 0.35;
-      col.r = mix(col.r, texture2D(u_tex, uv + offset * 1.025).r, ca);
-      col.b = mix(col.b, texture2D(u_tex, uv + offset * 0.975).b, ca);
+      float ca = edge * 0.38;
+      col.r = mix(col.r, texture2D(u_tex, uv + offset * 1.03).r, ca);
+      col.b = mix(col.b, texture2D(u_tex, uv + offset * 0.97).b, ca);
 
-      float rim = exp(-max(0.0, -d) * 0.42);
+      float rim = exp(-max(0.0, -d) * 0.38);
+      float inward = smoothstep(0.0, 20.0, -d);
       float top = smoothstep(0.0, 1.0, (p.y / max(halfSize.y, 1.0)) * 0.5 + 0.5);
+      vec2 hp = p / max(halfSize, vec2(1.0));
+      float bubble = smoothstep(0.58, 0.0, length(hp - vec2(-0.55, 0.55)));
 
       col = mix(col, u_tint, 0.60);
-      col += u_tint * 0.16;
-      col += vec3(0.58, 0.72, 1.0) * rim * 0.14;
-      col += vec3(0.34, 0.44, 0.78) * top * 0.035;
-      col += (hash(gl_FragCoord.xy + u_time) - 0.5) * 0.012;
+      col += u_tint * 0.14;
+      col *= 0.84 + 0.16 * inward;
+      col += vec3(0.58, 0.72, 1.0) * rim * 0.16;
+      col += vec3(0.34, 0.44, 0.78) * top * 0.03;
+      col += vec3(0.35, 0.45, 0.70) * bubble * 0.04;
+      col += (hash(gl_FragCoord.xy + u_time) - 0.5) * 0.015;
 
       gl_FragColor = vec4(col, alpha);
     }

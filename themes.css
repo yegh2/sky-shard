@@ -2026,3 +2026,28 @@ html[data-theme="glass"].glass-liquid-ready .rule-card {
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
 }
+
+.glass-engine {
+  display: none;
+}
+
+html[data-theme="glass"].glass-liquid-ready .glass-engine {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 6px;
+  padding: 2px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.56);
+  font: 8px var(--mono);
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 680px) {
+  html[data-theme="glass"].glass-liquid-ready .glass-engine {
+    margin-left: 4px;
+    padding: 1px 5px;
+    font-size: 7px;
+  }
+}
