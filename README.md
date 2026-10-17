@@ -33,7 +33,7 @@
 
 终端黑石状态：[preview/black.png](preview/black.png) · 移动端：[preview/mobile.png](preview/mobile.png)
 
-WinUI 3 主题使用 [WinUIonWeb](https://github.com/Furry-Xiyi/WinUIonWeb) 的 `ToggleButton` / `Button` 组件（Vue 3，GPL-3.0），由 `winui-ui/` 构建为 `winui-controls.js` / `winui-controls.css`，仅在切换到 WinUI 主题时按需加载。
+WinUI 3 主题使用 [WinUIonWeb](https://github.com/Furry-Xiyi/WinUIonWeb) 的 `ToggleButton` / `Button` 组件（Vue 3，GPL-3.0），由 `winui-ui/` 构建为 `winui-controls.js` / `winui-controls.css`，仅在切换到 WinUI 主题时按需加载。组件包约 887 KB（gzip 259 KB）。
 
 液态玻璃的视觉参考是 [liquid-glass-webgl](https://github.com/martin65536/liquid-glass-webgl)（AGPL-3.0）。它的完整玻璃/文字/交互都绘制在单个 WebGL Canvas 中，没有可嵌入普通 DOM 的组件边界；本站保留 DOM 语义与可访问性，使用独立的 WebGL 背景与 CSS `backdrop-filter` 实现玻璃层，没有复制其渲染器代码。
 
