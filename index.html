@@ -1,19 +1,35 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="terminal">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SKY::SHARD — 光遇红黑石时刻表</title>
   <meta name="description" content="精确计算并显示《光·遇》国服与国际服红石、黑石的下一次降落时间、地点与今日场次。纯本地确定性算法，无 API。">
-  <meta name="theme-color" content="#070809">
+  <meta name="theme-color" content="#070809" id="metaThemeColor">
   <meta name="color-scheme" content="dark">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=2.0.0">
+  <script>
+    (() => {
+      try {
+        const q = new URLSearchParams(location.search).get('theme');
+        const saved = localStorage.getItem('sky-shard-theme');
+        const theme = q || saved || 'terminal';
+        if (['terminal', 'winui', 'glass'].includes(theme)) {
+          document.documentElement.dataset.theme = theme;
+        }
+      } catch (err) {
+        // Keep the terminal default.
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css?v=2.1.0">
+  <link rel="stylesheet" href="themes.css?v=2.1.0">
 </head>
 <body data-server="cn" data-stone="red">
   <a class="skip-link" href="#now">跳到主要内容</a>
 
   <div class="bg" aria-hidden="true">
+    <canvas class="glass-canvas" id="glassCanvas"></canvas>
     <div class="bg-grid"></div>
     <div class="bg-glow"></div>
     <div class="bg-noise"></div>
@@ -53,6 +69,12 @@
       <div class="server-switch" role="group" aria-label="选择服务器">
         <button class="server-btn is-active" type="button" data-server="cn"><span>CN</span>国服</button>
         <button class="server-btn" type="button" data-server="intl"><span>INTL</span>国际服</button>
+      </div>
+      <span class="mode-divider" aria-hidden="true"></span>
+      <div class="style-switch" role="group" aria-label="界面风格">
+        <button class="style-btn is-active" type="button" data-style="terminal" title="终端风格" aria-label="终端风格"><span>01</span>终端</button>
+        <button class="style-btn" type="button" data-style="winui" title="WinUI 3 风格" aria-label="WinUI 3 风格"><span>02</span>WinUI3</button>
+        <button class="style-btn" type="button" data-style="glass" title="液态玻璃风格" aria-label="液态玻璃风格"><span>03</span>玻璃</button>
       </div>
       <div class="mode-meta">
         <span><i>GAME DAY</i><b id="gameDayLabel">—</b></span>
@@ -274,10 +296,11 @@
       </div>
     </div>
     <div class="footer-meta">
-      <span>v2.0.0</span>
+      <span>v2.1.0</span>
       <span>VANILLA JS</span>
       <span>0 DEPENDENCIES</span>
       <span id="footerTz">TZ —</span>
+      <span>STYLE REF · <a href="https://github.com/Furry-Xiyi/WinUIonWeb" target="_blank" rel="noreferrer">WINUI</a> / <a href="https://github.com/martin65536/liquid-glass-webgl" target="_blank" rel="noreferrer">GLASS</a></span>
       <span>© <span id="footerYear">2026</span></span>
     </div>
   </footer>
@@ -296,6 +319,7 @@
   <p class="sr-only" id="srStatus" role="status" aria-live="polite"></p>
   <noscript><div class="noscript">此工具需要 JavaScript 才能在本地计算红黑石时间。</div></noscript>
 
-  <script src="app.js?v=2.0.0"></script>
+  <script src="glass-bg.js?v=2.1.0"></script>
+  <script src="app.js?v=2.1.0"></script>
 </body>
 </html>

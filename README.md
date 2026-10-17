@@ -5,9 +5,7 @@
 **在线使用：** <https://yegh2.github.io/sky-shard/>  
 **国际服直达：** <https://yegh2.github.io/sky-shard/?server=intl>
 
-![桌面预览](preview/desktop.png)
-
-黑石状态：[preview/black.png](preview/black.png)
+![三套主题](preview/themes.png)
 
 ## 功能
 
@@ -18,7 +16,24 @@
 - 一键复制场次；自动复制失败时弹出手动复制窗口
 - 导出未来 90 个游戏日的 `.ics` 日历（含提前 10 分钟提醒）
 - 国服 / 国际服切换，状态保存在 URL 与 localStorage
+- **三套界面风格**：终端 / WinUI 3 / 液态玻璃，随时切换
 - 键盘快捷键：`C` 复制下一场、`T` 回到今天、`[` / `]` 切换月份
+
+## 界面风格
+
+风格切换器位于服务器切换器旁边，选择会写入 URL 与 `localStorage`：
+
+- `?theme=terminal` — 默认的黑底终端风格
+- `?theme=winui` — WinUI 3 / Fluent 深色，Mica 质感、Segoe UI Variable、Windows 蓝
+- `?theme=glass` — 液态玻璃，WebGL 动态背景 + 深色磨砂玻璃层
+
+![WinUI 3](preview/winui.png)
+
+![Liquid Glass](preview/glass.png)
+
+终端黑石状态：[preview/black.png](preview/black.png) · 移动端：[preview/mobile.png](preview/mobile.png)
+
+两个参考项目分别是 Vue 3 与 Next.js 应用。为了保持本站**零依赖、纯静态、可直接部署 GitHub Pages**，这里没有打包它们的运行时，而是基于其公开视觉规范独立实现了 CSS / WebGL 主题。详细署名与许可证见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 ## 本地运行
 
@@ -97,11 +112,14 @@ python -m http.server 4173
 ## 文件
 
 - `index.html` — 页面结构
-- `styles.css` — 视觉、双类型主题与响应式布局
-- `app.js` — 双服务器时间计算、渲染、日历与导出
+- `styles.css` — 基础视觉、双类型变量与响应式布局
+- `themes.css` — 终端 / WinUI 3 / 液态玻璃三套主题
+- `glass-bg.js` — 液态玻璃主题的 WebGL 背景
+- `app.js` — 双服务器时间计算、主题切换、渲染、日历与导出
 - `favicon.svg` — 图标
+- `THIRD_PARTY_NOTICES.md` — 视觉参考与第三方署名
 - `preview/` — 预览图
 
 ## 许可
 
-页面代码可自由使用；《光·遇》相关名称与素材版权归原版权方所有。
+页面代码可自由使用；《光·遇》相关名称与素材版权归原版权方所有。WinUI 与 Liquid Glass 视觉参考项目的许可证与署名见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

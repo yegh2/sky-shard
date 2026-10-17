@@ -711,6 +711,7 @@
 
   const state = {
     server: 'cn',
+    theme: 'terminal',
     schedule: null,
     lastGameDayKey: null,
     lastPhase: null,
@@ -1717,6 +1718,69 @@
     });
   }
 
+  function readTheme() {
+    const q = new URLSearchParams(location.search).get('theme');
+    if (q === 'terminal' || q === 'winui' || q === 'glass') return q;
+    try {
+      const saved = localStorage.getItem('sky-shard-theme');
+      if (saved === 'terminal' || saved === 'winui' || saved === 'glass') return saved;
+    } catch (err) {
+      // Ignore storage restrictions.
+    }
+    return 'terminal';
+  }
+
+  function persistTheme(theme) {
+    try {
+      localStorage.setItem('sky-shard-theme', theme);
+    } catch (err) {
+      // Ignore storage restrictions.
+    }
+    try {
+      const url = new URL(location.href);
+      if (theme === 'terminal') url.searchParams.delete('theme');
+      else url.searchParams.set('theme', theme);
+      history.replaceState(null, '', url);
+    } catch (err) {
+      // Ignore history restrictions on file URLs.
+    }
+  }
+
+  function applyTheme(theme, persist) {
+    if (theme !== 'terminal' && theme !== 'winui' && theme !== 'glass') theme = 'terminal';
+    state.theme = theme;
+    document.documentElement.dataset.theme = theme;
+
+    document.querySelectorAll('.style-btn[data-style]').forEach((button) => {
+      const active = button.dataset.style === theme;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+
+    const themeColor = document.getElementById('metaThemeColor');
+    if (themeColor) {
+      themeColor.setAttribute('content', theme === 'winui' ? '#202020' : theme === 'glass' ? '#070b18' : '#070809');
+    }
+
+    if (window.SkyGlass) {
+      if (theme === 'glass') window.SkyGlass.start();
+      else window.SkyGlass.stop();
+    }
+
+    if (persist) persistTheme(theme);
+  }
+
+  function switchTheme(theme) {
+    if (theme === state.theme) return;
+    applyTheme(theme, true);
+  }
+
+  function bindStyleButtons() {
+    document.querySelectorAll('.style-btn[data-style]').forEach((button) => {
+      button.addEventListener('click', () => switchTheme(button.dataset.style));
+    });
+  }
+
   function bindEvents() {
     els.copyBtn.addEventListener('click', copyNext);
     els.icsBtn.addEventListener('click', () => {
@@ -1808,9 +1872,12 @@
 
   function init() {
     state.server = readServer();
+    state.theme = readTheme();
     document.body.dataset.server = state.server;
+    applyTheme(state.theme, false);
     setFooterMeta();
     bindServerButtons();
+    bindStyleButtons();
     bindEvents();
     bindNav();
     initForServer(Date.now());
