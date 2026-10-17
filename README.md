@@ -25,7 +25,7 @@
 
 - `?theme=terminal` — 默认的黑底终端风格
 - `?theme=winui` — WinUI 3 / Fluent 深色；服务器/风格切换与操作按钮是真实打包的 **WinUIonWeb** Vue 控件
-- `?theme=glass` — 液态玻璃，WebGL 动态背景 + 深色磨砂玻璃层
+- `?theme=glass` — 液态玻璃，WebGL 实时背景 + 逐面板模糊、折射与边缘高光
 
 ![WinUI 3](preview/winui.png)
 
@@ -35,7 +35,7 @@
 
 WinUI 3 主题使用 [WinUIonWeb](https://github.com/Furry-Xiyi/WinUIonWeb) 的 `ToggleButton` / `Button` 组件（Vue 3，GPL-3.0），由 `winui-ui/` 构建为 `winui-controls.js` / `winui-controls.css`，仅在切换到 WinUI 主题时按需加载。组件包约 887 KB（gzip 259 KB）。
 
-液态玻璃的视觉参考是 [liquid-glass-webgl](https://github.com/martin65536/liquid-glass-webgl)（AGPL-3.0）。它的完整玻璃/文字/交互都绘制在单个 WebGL Canvas 中，没有可嵌入普通 DOM 的组件边界；本站保留 DOM 语义与可访问性，使用独立的 WebGL 背景与 CSS `backdrop-filter` 实现玻璃层，没有复制其渲染器代码。
+液态玻璃的视觉参考是 [liquid-glass-webgl](https://github.com/martin65536/liquid-glass-webgl)（AGPL-3.0）。它的完整玻璃/文字/交互都绘制在单个 WebGL Canvas 中，没有可嵌入普通 DOM 的组件边界；本站保留 DOM 语义与可访问性，用独立的 `glass-bg.js` WebGL 渲染器逐帧采样背景，为每个面板绘制模糊、边缘折射、色散和镜面高光；顶栏与按钮仍保留 CSS 玻璃层。没有复制上游渲染器代码。
 
 详细署名、依赖版本与许可证见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 

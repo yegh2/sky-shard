@@ -28,7 +28,7 @@ WinUIonWeb 的构建还包含以下依赖：
 - 许可证：**GNU Affero General Public License v3.0 (AGPL-3.0)**
 - 上游设计参考：**Kyant0 / AndroidLiquidGlass** — <https://github.com/Kyant0/AndroidLiquidGlass>
 - 使用位置：液态玻璃主题的深色磨砂玻璃、镜面高光、边缘折射与流动背景的视觉语言。
-- 说明：上游把完整的玻璃、文字和交互绘制在单个 WebGL Canvas 中，没有可嵌入普通 DOM 的组件边界；本站的 `glass-bg.js` 是独立的 WebGL 背景，玻璃面板使用原生 CSS `backdrop-filter`。**没有复制或打包该仓库的渲染器代码**，因此本仓库不因它而适用 AGPL-3.0。
+- 说明：上游把完整的玻璃、文字和交互绘制在单个 WebGL Canvas 中，没有可嵌入普通 DOM 的组件边界；本站的 `glass-bg.js` 是独立的 WebGL 渲染器，实时采样背景并绘制面板的模糊、折射、色散与边缘高光，顶栏与按钮仍使用 CSS `backdrop-filter`。**没有复制或打包该仓库的渲染器代码**，因此本仓库不因它而适用 AGPL-3.0。
 
 ## Microsoft WinUI / Fluent Design
 

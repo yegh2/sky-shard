@@ -2010,3 +2010,19 @@ html[data-theme="glass"] .day.is-empty .day-flag {
     opacity: 1;
   }
 }
+
+/* Liquid-glass WebGL panels (drawn by glass-bg.js) */
+html[data-theme="glass"].glass-liquid-ready .bg::after {
+  display: none;
+}
+
+html[data-theme="glass"].glass-liquid-ready .hero-side,
+html[data-theme="glass"].glass-liquid-ready .telemetry,
+html[data-theme="glass"].glass-liquid-ready .day,
+html[data-theme="glass"].glass-liquid-ready .calendar-panel,
+html[data-theme="glass"].glass-liquid-ready .cal-detail,
+html[data-theme="glass"].glass-liquid-ready .rule-card {
+  background: transparent !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
