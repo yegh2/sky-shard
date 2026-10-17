@@ -1816,12 +1816,12 @@
     winuiComponentsPromise = new Promise((resolve) => {
       const css = document.createElement('link');
       css.rel = 'stylesheet';
-      css.href = 'winui-controls.css?v=2.2.0';
+      css.href = 'winui-controls.css?v=2.2.2';
       css.id = 'winuiControlsStyle';
       document.head.appendChild(css);
 
       const script = document.createElement('script');
-      script.src = 'winui-controls.js?v=2.2.0';
+      script.src = 'winui-controls.js?v=2.2.2';
       script.onload = () => {
         syncWinUIComponentsStyle();
         mountWinUIComponents();
