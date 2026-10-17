@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SKY::SHARD — 光遇红黑石时刻表</title>
+  <meta name="description" content="精确计算并显示《光·遇》国服与国际服红石、黑石的下一次降落时间、地点与今日场次。纯本地确定性算法，无 API。">
+  <meta name="theme-color" content="#070809">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=2.0.0">
+</head>
+<body data-server="cn" data-stone="red">
+  <a class="skip-link" href="#now">跳到主要内容</a>
+
+  <div class="bg" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <header class="topbar" id="top">
+    <div class="topbar-inner">
+      <a class="brand" href="#now" aria-label="SKY SHARD 红黑石终端首页">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" role="presentation">
+            <path d="M16 3 27 12.5 22.5 27h-13L5 12.5Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M16 8.5 20.5 13.2 18.3 22h-4.6L11.5 13.2Z" fill="currentColor" opacity=".9"/>
+          </svg>
+        </span>
+        <span class="brand-name">SKY<span class="brand-colon">::</span>SHARD</span>
+        <span class="brand-cn">红黑石终端</span>
+      </a>
+
+      <nav class="nav" aria-label="页面导航">
+        <a href="#now" data-nav="now"><span>01</span>实时</a>
+        <a href="#forecast" data-nav="forecast"><span>02</span>预报</a>
+        <a href="#calendar" data-nav="calendar"><span>03</span>日历</a>
+        <a href="#rules" data-nav="rules"><span>04</span>算法</a>
+      </nav>
+
+      <div class="sys">
+        <span class="sys-state"><i id="sysLed" class="led" aria-hidden="true"></i><span id="sysState">STANDBY</span></span>
+        <span class="sys-sep" aria-hidden="true">/</span>
+        <time id="clock" datetime="">--:--:--</time>
+        <span class="sys-tz" id="tzLabel">UTC+8</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="modebar">
+    <div class="modebar-inner">
+      <div class="server-switch" role="group" aria-label="选择服务器">
+        <button class="server-btn is-active" type="button" data-server="cn"><span>CN</span>国服</button>
+        <button class="server-btn" type="button" data-server="intl"><span>INTL</span>国际服</button>
+      </div>
+      <div class="mode-meta">
+        <span><i>GAME DAY</i><b id="gameDayLabel">—</b></span>
+        <span><i>LOCAL</i><b id="localZoneLabel">—</b></span>
+        <span class="mode-hint" id="modeHint">UTC+8 自然日</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="shell">
+    <section class="hero" id="now">
+      <div class="hero-main">
+        <div class="kicker reveal">
+          <span class="kicker-line" aria-hidden="true"></span>
+          <span>REAL-TIME SHARD TELEMETRY</span>
+          <span class="kicker-code" id="kickerCode">CN-01</span>
+        </div>
+
+        <div class="hero-title-row reveal">
+          <h1 id="heroTitle">下一次<span class="accent">红石雨</span></h1>
+          <div class="status-pill" id="statusPill">
+            <i class="led" aria-hidden="true"></i>
+            <span id="statusText">STANDBY</span>
+          </div>
+        </div>
+
+        <p class="hero-sub reveal" id="heroSub">正在解算下一场碎石降落…</p>
+
+        <div class="countdown reveal" id="countdown" aria-live="off">
+          <div class="cd-unit"><span class="cd-num" id="cdD">00</span><span class="cd-label">DAYS</span></div>
+          <span class="cd-colon" aria-hidden="true">:</span>
+          <div class="cd-unit"><span class="cd-num" id="cdH">00</span><span class="cd-label">HOURS</span></div>
+          <span class="cd-colon" aria-hidden="true">:</span>
+          <div class="cd-unit"><span class="cd-num" id="cdM">00</span><span class="cd-label">MINUTES</span></div>
+          <span class="cd-colon" aria-hidden="true">:</span>
+          <div class="cd-unit"><span class="cd-num" id="cdS">00</span><span class="cd-label">SECONDS</span></div>
+        </div>
+
+        <div class="target reveal">
+          <span class="target-led" aria-hidden="true">▮</span>
+          <span class="target-label" id="targetLabel">TARGET</span>
+          <span class="target-iso" id="targetIso">----</span>
+          <span class="target-ms" id="ms">.000</span>
+        </div>
+
+        <div class="hero-actions reveal">
+          <button class="btn btn-primary" id="copyBtn" type="button" title="快捷键 C"><span class="btn-key">C</span>复制场次</button>
+          <button class="btn" id="icsBtn" type="button">导出 .ics</button>
+          <a class="btn btn-ghost" href="#calendar">查看日历 <span aria-hidden="true">↘</span></a>
+        </div>
+
+        <div class="hero-foot reveal">
+          <span><i class="dot" aria-hidden="true"></i>LOCAL COMPUTE</span>
+          <span>NO API</span>
+          <span id="heroWindow">WINDOW 52 MIN</span>
+          <span id="heroFootTime">SYNC --:--:--</span>
+        </div>
+      </div>
+
+      <aside class="hero-side reveal" aria-label="下一场碎石详情">
+        <div class="side-head">
+          <span>NEXT EVENT</span>
+          <span id="eventCode">—</span>
+        </div>
+
+        <div class="next-loc">
+          <div class="next-type-row">
+            <span class="stone-badge" id="nextType">RED SHARD</span>
+            <span class="next-group" id="nextGroup">—</span>
+          </div>
+          <span class="next-realm-en" id="nextRealmEn">CN SERVER</span>
+          <div class="next-realm-row">
+            <h2 id="nextRealm">—</h2>
+            <span class="next-map-code" id="nextMapCode">MAP --</span>
+          </div>
+          <p class="next-area" id="nextArea">正在解算</p>
+        </div>
+
+        <dl class="next-meta">
+          <div><dt>DATE</dt><dd id="nextDate">—</dd></div>
+          <div><dt>WINDOW</dt><dd id="nextWindow">—</dd></div>
+          <div><dt>TYPE</dt><dd id="nextMetaType">—</dd></div>
+          <div><dt>SERVER</dt><dd id="nextServer">—</dd></div>
+          <div><dt id="nextStartLabel">START</dt><dd id="nextStart">—</dd></div>
+          <div><dt>STATUS</dt><dd id="nextStatus">—</dd></div>
+        </dl>
+
+        <div class="queue">
+          <div class="queue-head">
+            <span id="queueTitle">TODAY / 今日场次</span>
+            <span id="queueDate">—</span>
+          </div>
+          <ol class="queue-list" id="queueList"></ol>
+        </div>
+
+        <div class="side-note" id="sideNote"><span>REWARD</span>—</div>
+      </aside>
+    </section>
+
+    <div class="telemetry" aria-hidden="true">
+      <span id="telemetryServer">CN SERVER</span>
+      <span id="telemetryZone">UTC+08:00</span>
+      <span>3 SLOTS / EVENT DAY</span>
+      <span id="telemetryWindow">WINDOW 52 MIN</span>
+      <span>LOCAL TIME</span>
+      <span>NON-OFFICIAL</span>
+    </div>
+
+    <section class="section" id="forecast">
+      <div class="section-head">
+        <div class="section-kicker">02 / FORECAST</div>
+        <h2>未来 7 天<span class="section-en">/ NEXT WINDOW</span></h2>
+        <p id="forecastNote">红石与黑石交错出现。所有场次按本地时区显示，日期按游戏日分组。</p>
+      </div>
+      <div class="days" id="daysGrid"></div>
+    </section>
+
+    <section class="section" id="calendar">
+      <div class="section-head">
+        <div class="section-kicker">03 / CALENDAR</div>
+        <h2>碎石日历<span class="section-en">/ MONTH MATRIX</span></h2>
+        <p id="calendarNote">点击任意一格查看当天的场次。红色为红石，蓝色为黑石。</p>
+      </div>
+
+      <div class="calendar-wrap">
+        <div class="calendar-panel">
+          <div class="cal-head">
+            <div class="cal-month">
+              <span id="calYear">----</span>
+              <span id="calMonth">--</span>
+            </div>
+            <div class="cal-actions">
+              <button class="icon-btn" id="prevMonth" type="button" aria-label="上个月" title="快捷键 [">←</button>
+              <button class="cal-today" id="todayBtn" type="button" title="快捷键 T">今天</button>
+              <button class="icon-btn" id="nextMonth" type="button" aria-label="下个月" title="快捷键 ]">→</button>
+            </div>
+          </div>
+
+          <div class="cal-weekdays" aria-hidden="true">
+            <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+          </div>
+          <div class="cal-grid" id="calGrid"></div>
+
+          <div class="cal-legend">
+            <span><i class="legend-dot red" aria-hidden="true"></i>红石日</span>
+            <span><i class="legend-dot black" aria-hidden="true"></i>黑石日</span>
+            <span><i class="legend-dot today" aria-hidden="true"></i>今天</span>
+            <span><i class="legend-dot empty" aria-hidden="true"></i>无碎石</span>
+            <span class="legend-note">每日最多 3 场</span>
+          </div>
+        </div>
+
+        <aside class="cal-detail" id="calDetail" aria-label="选中日期详情">
+          <div class="detail-head">
+            <span>SELECTED</span>
+            <span id="selCode">—</span>
+          </div>
+          <div class="detail-date">
+            <span id="selDayNum">—</span>
+            <span id="selMonthYear">—</span>
+          </div>
+          <h3 id="selRealm">—</h3>
+          <p class="detail-area" id="selArea">—</p>
+          <div class="detail-badge" id="selBadge">—</div>
+          <ol class="detail-sessions" id="selSessions"></ol>
+          <button class="btn btn-sm" id="selCopy" type="button">复制当日场次</button>
+          <p class="detail-note" id="selNote">—</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section rules" id="rules">
+      <div class="section-head">
+        <div class="section-kicker">04 / ALGORITHM</div>
+        <h2>计算规则<span class="section-en">/ DETERMINISTIC MODEL</span></h2>
+        <p id="rulesNote">不依赖接口与缓存。每一次刷新，都由本机按同一套规则重新推导。</p>
+      </div>
+
+      <div class="rules-grid">
+        <article class="rule-card formula-card">
+          <div class="card-label" id="ruleFormulaLabel">CORE / 判定式</div>
+          <div id="ruleFormula"></div>
+        </article>
+
+        <article class="rule-card">
+          <div class="card-label" id="ruleSlotsLabel">SLOTS / 时段</div>
+          <div id="ruleSlots"></div>
+        </article>
+
+        <article class="rule-card map-card">
+          <div class="card-label" id="ruleMapsLabel">MAPS / 地点</div>
+          <div id="ruleMaps"></div>
+        </article>
+
+        <article class="rule-card notes-card">
+          <div class="card-label">NOTES / 精度与边界</div>
+          <ul class="notes" id="ruleNotes"></ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" role="presentation">
+            <path d="M16 3 27 12.5 22.5 27h-13L5 12.5Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M16 8.5 20.5 13.2 18.3 22h-4.6L11.5 13.2Z" fill="currentColor" opacity=".9"/>
+          </svg>
+        </span>
+        <span>SKY::SHARD</span>
+      </div>
+      <p>非官方玩家工具。支持国服与国际服，显示红石与黑石。所有场次按本地时区换算，游戏日按各自服务器规则切换。</p>
+      <div class="footer-links">
+        <a href="https://sky-stones.pages.dev/" target="_blank" rel="noreferrer">CN CALENDAR ↗</a>
+        <a href="https://sky-shards.pages.dev/zh" target="_blank" rel="noreferrer">INTL CALENDAR ↗</a>
+        <a href="#top">BACK TO TOP ↑</a>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <span>v2.0.0</span>
+      <span>VANILLA JS</span>
+      <span>0 DEPENDENCIES</span>
+      <span id="footerTz">TZ —</span>
+      <span>© <span id="footerYear">2026</span></span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog class="copy-dialog" id="copyDialog" aria-labelledby="copyDialogTitle">
+    <div class="copy-dialog-inner">
+      <div class="copy-dialog-head">
+        <span id="copyDialogTitle">MANUAL COPY / 手动复制</span>
+        <button class="copy-close" id="copyClose" type="button" aria-label="关闭">×</button>
+      </div>
+      <p class="copy-hint">浏览器限制了自动写入剪贴板。文本已选中，请按 <kbd>Ctrl</kbd> / <kbd>⌘</kbd> + <kbd>C</kbd> 复制。</p>
+      <textarea id="copyArea" readonly spellcheck="false" aria-label="待复制文本"></textarea>
+    </div>
+  </dialog>
+  <p class="sr-only" id="srStatus" role="status" aria-live="polite"></p>
+  <noscript><div class="noscript">此工具需要 JavaScript 才能在本地计算红黑石时间。</div></noscript>
+
+  <script src="app.js?v=2.0.0"></script>
+</body>
+</html>
