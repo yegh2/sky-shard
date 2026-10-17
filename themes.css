@@ -670,7 +670,7 @@ html[data-theme="winui"] .cal-detail {
   background: #2b2b2b;
 }
 
-html[data-theme="winui"] .cal-head .icon-btn,
+html[data-theme="winui"] .cal-head .cal-arrow,
 html[data-theme="winui"] .cal-today {
   border-radius: 4px;
   border-color: rgba(255, 255, 255, 0.12);
@@ -1531,7 +1531,7 @@ html[data-theme="glass"] .cal-detail {
     linear-gradient(150deg, rgba(12, 15, 38, 0.7), rgba(26, 15, 52, 0.48));
 }
 
-html[data-theme="glass"] .cal-head .icon-btn,
+html[data-theme="glass"] .cal-head .cal-arrow,
 html[data-theme="glass"] .cal-today {
   border-radius: 999px;
   border-color: rgba(255, 255, 255, 0.2);

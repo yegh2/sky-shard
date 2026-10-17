@@ -22,8 +22,8 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.1.0">
-  <link rel="stylesheet" href="themes.css?v=2.1.0">
+  <link rel="stylesheet" href="styles.css?v=2.2.0">
+  <link rel="stylesheet" href="themes.css?v=2.2.0">
 </head>
 <body data-server="cn" data-stone="red">
   <a class="skip-link" href="#now">跳到主要内容</a>
@@ -76,6 +76,7 @@
         <button class="style-btn" type="button" data-style="winui" title="WinUI 3 风格" aria-label="WinUI 3 风格"><span>02</span>WinUI3</button>
         <button class="style-btn" type="button" data-style="glass" title="液态玻璃风格" aria-label="液态玻璃风格"><span>03</span>玻璃</button>
       </div>
+      <div class="winui-controls" id="winuiControls" aria-label="WinUI 组件控制条"></div>
       <div class="mode-meta">
         <span><i>GAME DAY</i><b id="gameDayLabel">—</b></span>
         <span><i>LOCAL</i><b id="localZoneLabel">—</b></span>
@@ -124,6 +125,7 @@
           <button class="btn btn-primary" id="copyBtn" type="button" title="快捷键 C"><span class="btn-key">C</span>复制场次</button>
           <button class="btn" id="icsBtn" type="button">导出 .ics</button>
           <a class="btn btn-ghost" href="#calendar">查看日历 <span aria-hidden="true">↘</span></a>
+          <div class="winui-actions" id="winuiActions" aria-label="WinUI 组件操作区"></div>
         </div>
 
         <div class="hero-foot reveal">
@@ -207,9 +209,9 @@
               <span id="calMonth">--</span>
             </div>
             <div class="cal-actions">
-              <button class="icon-btn" id="prevMonth" type="button" aria-label="上个月" title="快捷键 [">←</button>
+              <button class="cal-arrow" id="prevMonth" type="button" aria-label="上个月" title="快捷键 [">←</button>
               <button class="cal-today" id="todayBtn" type="button" title="快捷键 T">今天</button>
-              <button class="icon-btn" id="nextMonth" type="button" aria-label="下个月" title="快捷键 ]">→</button>
+              <button class="cal-arrow" id="nextMonth" type="button" aria-label="下个月" title="快捷键 ]">→</button>
             </div>
           </div>
 
@@ -296,11 +298,11 @@
       </div>
     </div>
     <div class="footer-meta">
-      <span>v2.1.0</span>
+      <span>v2.2.0</span>
       <span>VANILLA JS</span>
       <span>0 DEPENDENCIES</span>
       <span id="footerTz">TZ —</span>
-      <span>STYLE REF · <a href="https://github.com/Furry-Xiyi/WinUIonWeb" target="_blank" rel="noreferrer">WINUI</a> / <a href="https://github.com/martin65536/liquid-glass-webgl" target="_blank" rel="noreferrer">GLASS</a></span>
+      <span>STYLE REF · <a href="https://github.com/Furry-Xiyi/WinUIonWeb" target="_blank" rel="noreferrer">WINUI</a> / <a href="https://github.com/martin65536/liquid-glass-webgl" target="_blank" rel="noreferrer">GLASS</a> · <a href="LICENSE" target="_blank" rel="noreferrer">GPL-3.0</a></span>
       <span>© <span id="footerYear">2026</span></span>
     </div>
   </footer>
@@ -319,7 +321,7 @@
   <p class="sr-only" id="srStatus" role="status" aria-live="polite"></p>
   <noscript><div class="noscript">此工具需要 JavaScript 才能在本地计算红黑石时间。</div></noscript>
 
-  <script src="glass-bg.js?v=2.1.0"></script>
-  <script src="app.js?v=2.1.0"></script>
+  <script src="glass-bg.js?v=2.2.0"></script>
+  <script src="app.js?v=2.2.0"></script>
 </body>
 </html>

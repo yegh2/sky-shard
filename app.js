@@ -652,6 +652,8 @@
     heroFootTime: $('heroFootTime'),
     copyBtn: $('copyBtn'),
     icsBtn: $('icsBtn'),
+    winuiControls: $('winuiControls'),
+    winuiActions: $('winuiActions'),
     eventCode: $('eventCode'),
     nextType: $('nextType'),
     nextGroup: $('nextGroup'),
@@ -1312,6 +1314,7 @@
     });
 
     document.title = `SKY::SHARD — ${cfg.label}红黑石时刻表`;
+    updateWinUIComponents();
   }
 
   function renderServerTexts() {
@@ -1503,6 +1506,16 @@
       return;
     }
     copyText(buildNextCopyText(event));
+  }
+
+  function exportICS() {
+    const count = buildICS();
+    toast(count ? `已导出未来 90 个游戏日 · ${count} 场` : '未来 90 个游戏日内没有可导出的场次');
+  }
+
+  function toCalendar() {
+    const calendar = document.getElementById('calendar');
+    if (calendar) calendar.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function copySelected() {
@@ -1767,12 +1780,76 @@
       else window.SkyGlass.stop();
     }
 
+    if (theme === 'winui') ensureWinUIComponents();
+    syncWinUIComponentsStyle();
+    updateWinUIComponents();
+
     if (persist) persistTheme(theme);
   }
 
   function switchTheme(theme) {
     if (theme === state.theme) return;
     applyTheme(theme, true);
+  }
+
+  let winuiComponentsPromise = null;
+
+  function mountWinUIComponents() {
+    if (!window.WinUIThemeControls || !els.winuiControls || !els.winuiActions) return;
+    window.WinUIThemeControls.mount(els.winuiControls, els.winuiActions, {
+      server: state.server,
+      theme: state.theme
+    });
+    window.WinUIThemeControls.update({
+      server: state.server,
+      theme: state.theme
+    });
+  }
+
+  function ensureWinUIComponents() {
+    if (window.WinUIThemeControls) {
+      mountWinUIComponents();
+      return Promise.resolve();
+    }
+    if (winuiComponentsPromise) return winuiComponentsPromise;
+
+    winuiComponentsPromise = new Promise((resolve) => {
+      const css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = 'winui-controls.css?v=2.2.0';
+      css.id = 'winuiControlsStyle';
+      document.head.appendChild(css);
+
+      const script = document.createElement('script');
+      script.src = 'winui-controls.js?v=2.2.0';
+      script.onload = () => {
+        syncWinUIComponentsStyle();
+        mountWinUIComponents();
+        resolve();
+      };
+      script.onerror = () => {
+        winuiComponentsPromise = null;
+        resolve();
+      };
+      document.head.appendChild(script);
+    });
+
+    return winuiComponentsPromise;
+  }
+
+  function syncWinUIComponentsStyle() {
+    const link = document.getElementById('winuiControlsStyle');
+    if (link) link.disabled = false;
+  }
+
+  function updateWinUIComponents() {
+    syncWinUIComponentsStyle();
+    if (window.WinUIThemeControls) {
+      window.WinUIThemeControls.update({
+        server: state.server,
+        theme: state.theme
+      });
+    }
   }
 
   function bindStyleButtons() {
@@ -1783,10 +1860,7 @@
 
   function bindEvents() {
     els.copyBtn.addEventListener('click', copyNext);
-    els.icsBtn.addEventListener('click', () => {
-      const count = buildICS();
-      toast(count ? `已导出未来 90 个游戏日 · ${count} 场` : '未来 90 个游戏日内没有可导出的场次');
-    });
+    els.icsBtn.addEventListener('click', exportICS);
     els.selCopy.addEventListener('click', copySelected);
     els.prevMonth.addEventListener('click', () => shiftMonth(-1));
     els.nextMonth.addEventListener('click', () => shiftMonth(1));
@@ -1874,6 +1948,13 @@
     state.server = readServer();
     state.theme = readTheme();
     document.body.dataset.server = state.server;
+    window.SkyUI = {
+      switchServer,
+      switchTheme,
+      copyNext,
+      exportICS,
+      toCalendar
+    };
     applyTheme(state.theme, false);
     setFooterMeta();
     bindServerButtons();

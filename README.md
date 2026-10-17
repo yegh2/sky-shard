@@ -1,6 +1,6 @@
 # SKY::SHARD
 
-一个极简、极客风格的光遇红黑石时刻表。支持**国服**与**国际服**（含主机 / PC 等全球服平台），同时计算红石与黑石。纯静态、零依赖，所有时间由本机按确定性规则推导，不请求后端接口。
+一个极简、极客风格的光遇红黑石时刻表。支持**国服**与**国际服**（含主机 / PC 等全球服平台），同时计算红石与黑石。纯静态、无后端接口，所有时间由本机按确定性规则推导。
 
 **在线使用：** <https://yegh2.github.io/sky-shard/>  
 **国际服直达：** <https://yegh2.github.io/sky-shard/?server=intl>
@@ -24,7 +24,7 @@
 风格切换器位于服务器切换器旁边，选择会写入 URL 与 `localStorage`：
 
 - `?theme=terminal` — 默认的黑底终端风格
-- `?theme=winui` — WinUI 3 / Fluent 深色，Mica 质感、Segoe UI Variable、Windows 蓝
+- `?theme=winui` — WinUI 3 / Fluent 深色；服务器/风格切换与操作按钮是真实打包的 **WinUIonWeb** Vue 控件
 - `?theme=glass` — 液态玻璃，WebGL 动态背景 + 深色磨砂玻璃层
 
 ![WinUI 3](preview/winui.png)
@@ -33,7 +33,21 @@
 
 终端黑石状态：[preview/black.png](preview/black.png) · 移动端：[preview/mobile.png](preview/mobile.png)
 
-两个参考项目分别是 Vue 3 与 Next.js 应用。为了保持本站**零依赖、纯静态、可直接部署 GitHub Pages**，这里没有打包它们的运行时，而是基于其公开视觉规范独立实现了 CSS / WebGL 主题。详细署名与许可证见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+WinUI 3 主题使用 [WinUIonWeb](https://github.com/Furry-Xiyi/WinUIonWeb) 的 `ToggleButton` / `Button` 组件（Vue 3，GPL-3.0），由 `winui-ui/` 构建为 `winui-controls.js` / `winui-controls.css`，仅在切换到 WinUI 主题时按需加载。
+
+液态玻璃的视觉参考是 [liquid-glass-webgl](https://github.com/martin65536/liquid-glass-webgl)（AGPL-3.0）。它的完整玻璃/文字/交互都绘制在单个 WebGL Canvas 中，没有可嵌入普通 DOM 的组件边界；本站保留 DOM 语义与可访问性，使用独立的 WebGL 背景与 CSS `backdrop-filter` 实现玻璃层，没有复制其渲染器代码。
+
+详细署名、依赖版本与许可证见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+
+## 构建 WinUI 控件
+
+```powershell
+cd winui-ui
+pnpm install
+pnpm run build
+# 将 winui-ui/dist/winui-controls.js 和 dist/assets/*.css
+# 复制为根目录的 winui-controls.js / winui-controls.css
+```
 
 ## 本地运行
 
@@ -116,10 +130,14 @@ python -m http.server 4173
 - `themes.css` — 终端 / WinUI 3 / 液态玻璃三套主题
 - `glass-bg.js` — 液态玻璃主题的 WebGL 背景
 - `app.js` — 双服务器时间计算、主题切换、渲染、日历与导出
+- `winui-controls.js` / `winui-controls.css` — 由 `winui-ui/` 构建的 WinUIonWeb 组件包（按需加载）
+- `winui-ui/` — WinUI 组件的 Vue 入口、Vite 配置与锁文件
 - `favicon.svg` — 图标
-- `THIRD_PARTY_NOTICES.md` — 视觉参考与第三方署名
+- `LICENSE` — GPL-3.0-only
+- `licenses/` — Vue / MathLive / rtf.js / codepage 的许可证文本
+- `THIRD_PARTY_NOTICES.md` — 第三方署名
 - `preview/` — 预览图
 
 ## 许可
 
-页面代码可自由使用；《光·遇》相关名称与素材版权归原版权方所有。WinUI 与 Liquid Glass 视觉参考项目的许可证与署名见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+本仓库整体按 **GPL-3.0-only** 发布，因为 `winui-controls.js` 打包了 GPL-3.0 的 WinUIonWeb。完整文本见 [LICENSE](LICENSE)，第三方依赖见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。《光·遇》相关名称与素材版权归原版权方所有。

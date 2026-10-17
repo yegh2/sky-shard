@@ -1229,7 +1229,7 @@ body[data-stone="black"] .bg-glow {
   gap: 5px;
 }
 
-.icon-btn,
+.cal-arrow,
 .cal-today {
   appearance: none;
   height: 29px;
@@ -1242,7 +1242,7 @@ body[data-stone="black"] .bg-glow {
   transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
 }
 
-.icon-btn {
+.cal-arrow {
   width: 29px;
   padding: 0;
 }
@@ -1253,7 +1253,7 @@ body[data-stone="black"] .bg-glow {
   letter-spacing: 0.08em;
 }
 
-.icon-btn:hover,
+.cal-arrow:hover,
 .cal-today:hover {
   border-color: var(--line-strong);
   background: rgba(255, 255, 255, 0.035);
