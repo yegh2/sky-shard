@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-SKY::SHARD 的 WinUI 3 主题现在**真实打包并使用** [WinUIonWeb](https://github.com/Furry-Xiyi/WinUIonWeb) 的 Vue 3 控件；液态玻璃主题的视觉参考来自 [liquid-glass-webgl](https://github.com/martin65536/liquid-glass-webgl)，但该项目的渲染器是整屏 Canvas 场景，未直接打包到本站。
+SKY::SHARD 的 WinUI 3 主题现在**真实打包并使用** [WinUIonWeb](https://github.com/Furry-Xiyi/WinUIonWeb) 的 Vue 3 控件。
 
 ## WinUIonWeb（已打包）
 
@@ -20,15 +20,6 @@ WinUIonWeb 的构建还包含以下依赖：
 | MathLive | 0.111.1 | MIT | [licenses/mathlive.txt](licenses/mathlive.txt) |
 | rtf.js | 3.0.9 | MIT | [licenses/rtf.js.txt](licenses/rtf.js.txt) |
 | codepage | 1.15.0 | Apache-2.0 | [licenses/codepage.txt](licenses/codepage.txt) |
-
-## liquid-glass-webgl（视觉参考）
-
-- 项目：**martin65536 / liquid-glass-webgl**
-- 链接：<https://github.com/martin65536/liquid-glass-webgl>
-- 许可证：**GNU Affero General Public License v3.0 (AGPL-3.0)**
-- 上游设计参考：**Kyant0 / AndroidLiquidGlass** — <https://github.com/Kyant0/AndroidLiquidGlass>
-- 使用位置：液态玻璃主题的深色磨砂玻璃、镜面高光、边缘折射与流动背景的视觉语言。
-- 说明：上游把完整的玻璃、文字和交互绘制在单个 WebGL Canvas 中，没有可嵌入普通 DOM 的组件边界；本站的 `glass-bg.js` 是独立的 WebGL 渲染器，实时采样背景并绘制面板的模糊、折射、色散与边缘高光，顶栏与按钮仍使用 CSS `backdrop-filter`。**没有复制或打包该仓库的渲染器代码**，因此本仓库不因它而适用 AGPL-3.0。
 
 ## Microsoft WinUI / Fluent Design
 

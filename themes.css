@@ -1,18 +1,10 @@
-/* --------------------------------------------------------------------------
-   Theme layer
-   Terminal = original monospace terminal
-   WinUI    = Fluent / WinUI 3 dark
-   Glass    = liquid-glass visual language
-   -------------------------------------------------------------------------- */
-
-.mode-divider {
+.mode-divider{
   width: 1px;
   height: 18px;
   background: var(--line);
   flex: 0 0 auto;
 }
-
-.style-switch {
+.style-switch{
   display: inline-flex;
   align-items: center;
   gap: 1px;
@@ -20,8 +12,7 @@
   border: 1px solid var(--line);
   border-radius: 2px;
 }
-
-.style-btn {
+.style-btn{
   appearance: none;
   display: inline-flex;
   align-items: baseline;
@@ -37,57 +28,32 @@
   cursor: pointer;
   transition: color 0.18s ease, background 0.18s ease;
 }
-
-.style-btn span {
+.style-btn span{
   color: #484d54;
   font-size: 6px;
   letter-spacing: 0.08em;
 }
-
-.style-btn:hover {
+.style-btn:hover{
   color: var(--text);
 }
-
-.style-btn.is-active {
+.style-btn.is-active{
   background: rgba(255, 255, 255, 0.07);
   color: var(--text);
 }
-
-.style-btn.is-active span {
+.style-btn.is-active span{
   color: var(--event-soft);
 }
-
-.glass-canvas {
-  position: absolute;
-  inset: 0;
-  display: none;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.footer-meta a {
+.footer-meta a{
   color: #6f757d;
   text-decoration: none;
 }
-
-.footer-meta a:hover {
+.footer-meta a:hover{
   color: var(--event-soft);
 }
-
-html[data-theme="glass"] .glass-canvas {
-  display: block;
-}
-
-html[data-theme="glass"] .glass-canvas.is-failed {
-  display: none;
-}
-
 /* ==========================================================================
    WinUI 3
    ========================================================================== */
-
-html[data-theme="winui"] {
+html[data-theme="winui"]{
   --bg: #202020;
   --bg-soft: #272727;
   --panel: #2b2b2b;
@@ -107,117 +73,93 @@ html[data-theme="winui"] {
   --sans: "Segoe UI Variable Display", "Segoe UI Variable Text", "Segoe UI", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
   --mono: "Cascadia Mono", "Cascadia Code", "Consolas", "Liberation Mono", monospace;
 }
-
-html[data-theme="winui"] body {
+html[data-theme="winui"] body{
   background: #202020;
 }
-
-html[data-theme="winui"] .bg {
+html[data-theme="winui"] .bg{
   background:
     radial-gradient(1000px 600px at 55% -15%, rgba(96, 205, 255, 0.14), transparent 62%),
     radial-gradient(800px 560px at 0% 30%, rgba(126, 92, 255, 0.07), transparent 70%),
     linear-gradient(180deg, #212121 0%, #1e1e1e 100%);
 }
-
-html[data-theme="winui"] .bg-grid {
+html[data-theme="winui"] .bg-grid{
   opacity: 0.12;
   background-size: 112px 112px;
 }
-
-html[data-theme="winui"] .bg-glow {
+html[data-theme="winui"] .bg-glow{
   background: radial-gradient(circle, rgba(96, 205, 255, 0.13), transparent 66%);
   opacity: 0.38;
 }
-
-html[data-theme="winui"] .bg-noise {
+html[data-theme="winui"] .bg-noise{
   opacity: 0.018;
 }
-
-html[data-theme="winui"] .topbar {
+html[data-theme="winui"] .topbar{
   border-top: 2px solid rgba(96, 205, 255, 0.78);
   background: rgba(32, 32, 32, 0.82);
   border-bottom-color: rgba(255, 255, 255, 0.09);
 }
-
-html[data-theme="winui"] .brand-mark {
+html[data-theme="winui"] .brand-mark{
   color: var(--win-accent);
 }
-
-html[data-theme="winui"] .brand-name {
+html[data-theme="winui"] .brand-name{
   font: 600 13px var(--sans);
   letter-spacing: 0.01em;
 }
-
-html[data-theme="winui"] .brand-colon {
+html[data-theme="winui"] .brand-colon{
   color: var(--win-accent);
 }
-
-html[data-theme="winui"] .brand-cn {
+html[data-theme="winui"] .brand-cn{
   font-family: var(--sans);
   color: var(--dim);
 }
-
-html[data-theme="winui"] .nav {
+html[data-theme="winui"] .nav{
   gap: 6px;
 }
-
-html[data-theme="winui"] .nav a {
+html[data-theme="winui"] .nav a{
   padding: 6px 10px;
   border-radius: 4px;
   gap: 7px;
   font: 12px var(--sans);
   color: var(--muted);
 }
-
-html[data-theme="winui"] .nav a span {
+html[data-theme="winui"] .nav a span{
   font: 9px var(--mono);
   color: var(--dim);
 }
-
-html[data-theme="winui"] .nav a:hover {
+html[data-theme="winui"] .nav a:hover{
   background: rgba(255, 255, 255, 0.055);
   color: var(--text);
 }
-
-html[data-theme="winui"] .nav a.is-active {
+html[data-theme="winui"] .nav a.is-active{
   background: rgba(96, 205, 255, 0.12);
   color: var(--win-accent);
 }
-
-html[data-theme="winui"] .nav a.is-active span {
+html[data-theme="winui"] .nav a.is-active span{
   color: var(--win-accent);
 }
-
-html[data-theme="winui"] .sys {
+html[data-theme="winui"] .sys{
   font-family: var(--sans);
   color: var(--dim);
 }
-
-html[data-theme="winui"] .sys-tz {
+html[data-theme="winui"] .sys-tz{
   color: #8a8a8a;
 }
-
-html[data-theme="winui"] .modebar {
+html[data-theme="winui"] .modebar{
   background: rgba(39, 39, 39, 0.78);
   border-bottom-color: rgba(255, 255, 255, 0.08);
 }
-
-html[data-theme="winui"] .modebar-inner {
+html[data-theme="winui"] .modebar-inner{
   min-height: 45px;
   gap: 16px;
 }
-
-html[data-theme="winui"] .server-switch,
-html[data-theme="winui"] .style-switch {
+html[data-theme="winui"] .server-switch, html[data-theme="winui"] .style-switch{
   gap: 2px;
   padding: 2px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.03);
 }
-
-html[data-theme="winui"] .server-btn,
-html[data-theme="winui"] .style-btn {
+html[data-theme="winui"] .server-btn, html[data-theme="winui"] .style-btn{
   height: 26px;
   padding: 0 9px;
   border: 1px solid transparent;
@@ -225,94 +167,72 @@ html[data-theme="winui"] .style-btn {
   color: var(--muted);
   font: 11px var(--sans);
 }
-
-html[data-theme="winui"] .server-btn span,
-html[data-theme="winui"] .style-btn span {
+html[data-theme="winui"] .server-btn span, html[data-theme="winui"] .style-btn span{
   font: 8px var(--mono);
   color: #8e8e8e;
 }
-
-html[data-theme="winui"] .server-btn:hover,
-html[data-theme="winui"] .style-btn:hover {
+html[data-theme="winui"] .server-btn:hover, html[data-theme="winui"] .style-btn:hover{
   background: rgba(255, 255, 255, 0.055);
   color: var(--text);
 }
-
-html[data-theme="winui"] .server-btn.is-active,
-html[data-theme="winui"] .style-btn.is-active {
+html[data-theme="winui"] .server-btn.is-active, html[data-theme="winui"] .style-btn.is-active{
   border-color: rgba(255, 255, 255, 0.16);
   background: #383838;
   color: #ffffff;
 }
-
-html[data-theme="winui"] .server-btn.is-active span,
-html[data-theme="winui"] .style-btn.is-active span {
+html[data-theme="winui"] .server-btn.is-active span, html[data-theme="winui"] .style-btn.is-active span{
   color: var(--win-accent);
 }
-
-html[data-theme="winui"] .mode-divider {
+html[data-theme="winui"] .mode-divider{
   background: rgba(255, 255, 255, 0.12);
 }
-
-html[data-theme="winui"] .mode-meta {
+html[data-theme="winui"] .mode-meta{
   font: 9px var(--sans);
   letter-spacing: 0.02em;
 }
-
-html[data-theme="winui"] .mode-meta i {
+html[data-theme="winui"] .mode-meta i{
   color: #8d8d8d;
   font-style: normal;
 }
-
-html[data-theme="winui"] .mode-meta b {
+html[data-theme="winui"] .mode-meta b{
   font: 10px var(--mono);
   color: var(--text);
 }
-
-html[data-theme="winui"] ::selection {
+html[data-theme="winui"] ::selection{
   background: var(--win-accent);
   color: #071720;
 }
-
-html[data-theme="winui"] :focus-visible {
+html[data-theme="winui"] :focus-visible{
   outline-color: var(--win-accent);
 }
-
-html[data-theme="winui"] .hero {
+html[data-theme="winui"] .hero{
   grid-template-columns: minmax(0, 1fr) 378px;
   padding: 58px 0 44px;
 }
-
-html[data-theme="winui"] .hero-main {
+html[data-theme="winui"] .hero-main{
   padding-right: 48px;
   border-right-color: rgba(255, 255, 255, 0.08);
 }
-
-html[data-theme="winui"] .kicker {
+html[data-theme="winui"] .kicker{
   font: 10px var(--sans);
   letter-spacing: 0.03em;
 }
-
-html[data-theme="winui"] .kicker-line {
+html[data-theme="winui"] .kicker-line{
   background: var(--win-accent);
 }
-
-html[data-theme="winui"] .kicker-code {
+html[data-theme="winui"] .kicker-code{
   color: #8f8f8f;
 }
-
-html[data-theme="winui"] .hero-title-row {
+html[data-theme="winui"] .hero-title-row{
   margin-top: 20px;
 }
-
-html[data-theme="winui"] .hero-title-row h1 {
+html[data-theme="winui"] .hero-title-row h1{
   font-family: var(--sans);
   font-size: clamp(2.35rem, 4vw, 3.85rem);
   font-weight: 600;
   letter-spacing: -0.025em;
 }
-
-html[data-theme="winui"] .status-pill {
+html[data-theme="winui"] .status-pill{
   margin-bottom: 7px;
   padding: 6px 10px;
   border-radius: 4px;
@@ -322,66 +242,54 @@ html[data-theme="winui"] .status-pill {
   font: 10px var(--sans);
   letter-spacing: 0.03em;
 }
-
-html[data-theme="winui"] .status-pill.is-live,
-html[data-theme="winui"] .status-pill.is-incoming {
+html[data-theme="winui"] .status-pill.is-live, html[data-theme="winui"] .status-pill.is-incoming{
   color: var(--event);
   border-color: var(--event);
   background: var(--event-faint);
 }
-
-html[data-theme="winui"] .hero-sub {
+html[data-theme="winui"] .hero-sub{
   max-width: 640px;
   margin-top: 14px;
   font-size: 14px;
   line-height: 1.75;
 }
-
-html[data-theme="winui"] .countdown {
+html[data-theme="winui"] .countdown{
   gap: 12px;
   margin-top: 26px;
 }
-
-html[data-theme="winui"] .cd-num {
+html[data-theme="winui"] .cd-num{
   font-family: var(--sans);
   font-size: clamp(3rem, 6.1vw, 5.9rem);
   font-weight: 600;
   letter-spacing: -0.045em;
 }
-
-html[data-theme="winui"] .cd-label {
+html[data-theme="winui"] .cd-label{
   margin-top: 14px;
   font: 9px var(--sans);
   letter-spacing: 0.08em;
 }
-
-html[data-theme="winui"] .cd-colon {
+html[data-theme="winui"] .cd-colon{
   color: var(--event);
   font-size: clamp(1.4rem, 3vw, 2.8rem);
   font-weight: 400;
   transform: translateY(0.25em);
 }
-
-html[data-theme="winui"] .target {
+html[data-theme="winui"] .target{
   margin-top: 22px;
   font: 10px var(--sans);
   letter-spacing: 0.02em;
 }
-
-html[data-theme="winui"] .target-label {
+html[data-theme="winui"] .target-label{
   letter-spacing: 0.05em;
 }
-
-html[data-theme="winui"] .target-ms {
+html[data-theme="winui"] .target-ms{
   font-family: var(--mono);
 }
-
-html[data-theme="winui"] .hero-actions {
+html[data-theme="winui"] .hero-actions{
   margin-top: 24px;
   gap: 8px;
 }
-
-html[data-theme="winui"] .btn {
+html[data-theme="winui"] .btn{
   height: 38px;
   padding: 0 16px;
   border-radius: 4px;
@@ -391,32 +299,27 @@ html[data-theme="winui"] .btn {
   font: 11px var(--sans);
   letter-spacing: 0.02em;
 }
-
-html[data-theme="winui"] .btn:hover {
+html[data-theme="winui"] .btn:hover{
   border-color: rgba(255, 255, 255, 0.28);
   background: #383838;
 }
-
-html[data-theme="winui"] .btn-primary {
+html[data-theme="winui"] .btn-primary{
   border-color: var(--win-accent);
   background: var(--win-accent);
   color: #071720;
 }
-
-html[data-theme="winui"] .btn-primary:hover {
+html[data-theme="winui"] .btn-primary:hover{
   border-color: #8adcff;
   background: #8adcff;
   filter: none;
 }
-
-html[data-theme="winui"] .hero-foot {
+html[data-theme="winui"] .hero-foot{
   margin-top: 28px;
   padding-top: 13px;
   font: 9px var(--sans);
   letter-spacing: 0.02em;
 }
-
-html[data-theme="winui"] .hero-side {
+html[data-theme="winui"] .hero-side{
   padding: 22px 22px 19px;
   border-radius: 8px;
   border-color: rgba(255, 255, 255, 0.1);
@@ -424,8 +327,7 @@ html[data-theme="winui"] .hero-side {
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
   overflow: hidden;
 }
-
-html[data-theme="winui"] .hero-side::before {
+html[data-theme="winui"] .hero-side::before{
   top: 0;
   left: 0;
   width: 100%;
@@ -435,95 +337,75 @@ html[data-theme="winui"] .hero-side::before {
   box-shadow: none;
   opacity: 0.72;
 }
-
-html[data-theme="winui"] .side-head {
+html[data-theme="winui"] .side-head{
   padding-bottom: 12px;
   font: 9px var(--sans);
   letter-spacing: 0.04em;
 }
-
-html[data-theme="winui"] .next-loc {
+html[data-theme="winui"] .next-loc{
   padding: 20px 0 18px;
 }
-
-html[data-theme="winui"] .stone-badge {
+html[data-theme="winui"] .stone-badge{
   border-radius: 4px;
   font: 9px var(--sans);
   letter-spacing: 0.03em;
 }
-
-html[data-theme="winui"] .next-group {
+html[data-theme="winui"] .next-group{
   font: 9px var(--sans);
 }
-
-html[data-theme="winui"] .next-realm-en {
+html[data-theme="winui"] .next-realm-en{
   color: var(--win-accent);
   font: 9px var(--sans);
   letter-spacing: 0.06em;
   opacity: 0.9;
 }
-
-html[data-theme="winui"] .next-realm-row h2 {
+html[data-theme="winui"] .next-realm-row h2{
   font-family: var(--sans);
   font-size: 32px;
 }
-
-html[data-theme="winui"] .next-map-code {
+html[data-theme="winui"] .next-map-code{
   font: 9px var(--mono);
 }
-
-html[data-theme="winui"] .next-area {
+html[data-theme="winui"] .next-area{
   font-size: 15px;
 }
-
-html[data-theme="winui"] .next-meta {
+html[data-theme="winui"] .next-meta{
   border-color: rgba(255, 255, 255, 0.09);
 }
-
-html[data-theme="winui"] .next-meta div {
+html[data-theme="winui"] .next-meta div{
   padding: 10px 11px;
   border-color: rgba(255, 255, 255, 0.09);
   background: #272727;
 }
-
-html[data-theme="winui"] .next-meta dt {
+html[data-theme="winui"] .next-meta dt{
   font: 8px var(--sans);
   letter-spacing: 0.05em;
 }
-
-html[data-theme="winui"] .next-meta dd {
+html[data-theme="winui"] .next-meta dd{
   font: 10px var(--mono);
 }
-
-html[data-theme="winui"] .queue-head {
+html[data-theme="winui"] .queue-head{
   font: 9px var(--sans);
   letter-spacing: 0.04em;
 }
-
-html[data-theme="winui"] .q-item {
+html[data-theme="winui"] .q-item{
   padding: 9px 0 9px 8px;
   border-bottom-color: rgba(255, 255, 255, 0.06);
 }
-
-html[data-theme="winui"] .q-idx,
-html[data-theme="winui"] .q-status {
+html[data-theme="winui"] .q-idx, html[data-theme="winui"] .q-status{
   font-family: var(--sans);
 }
-
-html[data-theme="winui"] .q-time {
+html[data-theme="winui"] .q-time{
   font: 10px var(--mono);
 }
-
-html[data-theme="winui"] .q-place {
+html[data-theme="winui"] .q-place{
   font-size: 11px;
   color: var(--muted);
 }
-
-html[data-theme="winui"] .side-note {
+html[data-theme="winui"] .side-note{
   font: 8px var(--sans);
 }
-
-html[data-theme="winui"] .telemetry {
+html[data-theme="winui"] .telemetry{
   margin-top: 8px;
   padding: 11px 15px;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -533,43 +415,36 @@ html[data-theme="winui"] .telemetry {
   font: 9px var(--sans);
   letter-spacing: 0.02em;
 }
-
-html[data-theme="winui"] .section {
+html[data-theme="winui"] .section{
   padding-top: 62px;
 }
-
-html[data-theme="winui"] .section-kicker {
+html[data-theme="winui"] .section-kicker{
   color: var(--win-accent);
   font: 10px var(--sans);
   letter-spacing: 0.03em;
   opacity: 1;
 }
-
-html[data-theme="winui"] .section-head h2 {
+html[data-theme="winui"] .section-head h2{
   margin-top: 6px;
   font-family: var(--sans);
   font-size: 30px;
   letter-spacing: -0.02em;
 }
-
-html[data-theme="winui"] .section-en {
+html[data-theme="winui"] .section-en{
   font: 10px var(--sans);
   letter-spacing: 0.03em;
 }
-
-html[data-theme="winui"] .section-head p {
+html[data-theme="winui"] .section-head p{
   font-size: 12px;
   line-height: 1.8;
 }
-
-html[data-theme="winui"] .days {
+html[data-theme="winui"] .days{
   grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 8px;
   border: 0;
   background: transparent;
 }
-
-html[data-theme="winui"] .day {
+html[data-theme="winui"] .day{
   min-height: 184px;
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 8px;
@@ -577,1477 +452,318 @@ html[data-theme="winui"] .day {
   box-shadow: none;
   padding: 15px 14px 13px;
 }
-
-html[data-theme="winui"] .day.is-red {
+html[data-theme="winui"] .day.is-red{
   background: linear-gradient(180deg, rgba(255, 123, 123, 0.075), #2b2b2b 42%);
 }
-
-html[data-theme="winui"] .day.is-black {
+html[data-theme="winui"] .day.is-black{
   background: linear-gradient(180deg, rgba(143, 208, 255, 0.075), #2b2b2b 42%);
 }
-
-html[data-theme="winui"] .day.is-today {
+html[data-theme="winui"] .day.is-today{
   background: #313131;
   box-shadow: 0 0 0 1px var(--win-accent), 0 6px 20px rgba(0, 0, 0, 0.22);
 }
-
-html[data-theme="winui"] .day.is-red::before,
-html[data-theme="winui"] .day.is-black::before {
+html[data-theme="winui"] .day.is-red::before, html[data-theme="winui"] .day.is-black::before{
   height: 2px;
   border-radius: 8px 8px 0 0;
   left: 10px;
   right: 10px;
 }
-
-html[data-theme="winui"] .day.is-today::after {
+html[data-theme="winui"] .day.is-today::after{
   color: rgba(255, 255, 255, 0.5);
   font: 7px var(--sans);
   letter-spacing: 0.06em;
 }
-
-html[data-theme="winui"] .dow {
+html[data-theme="winui"] .dow{
   font: 9px var(--sans);
   letter-spacing: 0.03em;
 }
-
-html[data-theme="winui"] .date {
+html[data-theme="winui"] .date{
   font: 10px var(--mono);
 }
-
-html[data-theme="winui"] .day-flag {
+html[data-theme="winui"] .day-flag{
   margin-top: 16px;
   font: 9px var(--sans);
   letter-spacing: 0.04em;
 }
-
-html[data-theme="winui"] .day-loc {
+html[data-theme="winui"] .day-loc{
   font-size: 13px;
 }
-
-html[data-theme="winui"] .day-loc .realm {
+html[data-theme="winui"] .day-loc .realm{
   font-size: 11px;
 }
-
-html[data-theme="winui"] .day-track {
+html[data-theme="winui"] .day-track{
   height: 3px;
   border-radius: 2px;
 }
-
-html[data-theme="winui"] .day-seg {
+html[data-theme="winui"] .day-seg{
   height: 3px;
   border-radius: 2px;
 }
-
-html[data-theme="winui"] .day-now {
+html[data-theme="winui"] .day-now{
   width: 2px;
   height: 9px;
   background: #fff;
 }
-
-html[data-theme="winui"] .day-times {
+html[data-theme="winui"] .day-times{
   font: 9px var(--mono);
 }
-
-html[data-theme="winui"] .day.is-empty .day-times {
+html[data-theme="winui"] .day.is-empty .day-times{
   font-size: 8px;
 }
-
-html[data-theme="winui"] .calendar-wrap {
+html[data-theme="winui"] .calendar-wrap{
   gap: 10px;
   border: 0;
   background: transparent;
 }
-
-html[data-theme="winui"] .calendar-panel,
-html[data-theme="winui"] .cal-detail {
+html[data-theme="winui"] .calendar-panel, html[data-theme="winui"] .cal-detail{
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 8px;
   background: #272727;
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
 }
-
-html[data-theme="winui"] .cal-detail {
+html[data-theme="winui"] .cal-detail{
   background: #2b2b2b;
 }
-
-html[data-theme="winui"] .cal-head .cal-arrow,
-html[data-theme="winui"] .cal-today {
+html[data-theme="winui"] .cal-head .cal-arrow, html[data-theme="winui"] .cal-today{
   border-radius: 4px;
   border-color: rgba(255, 255, 255, 0.12);
   background: #2d2d2d;
   color: var(--muted);
   font-family: var(--sans);
 }
-
-html[data-theme="winui"] #calYear {
+html[data-theme="winui"] #calYear{
   font: 10px var(--sans);
 }
-
-html[data-theme="winui"] #calMonth {
+html[data-theme="winui"] #calMonth{
   font-family: var(--sans);
   font-size: 25px;
 }
-
-html[data-theme="winui"] .cal-weekdays {
+html[data-theme="winui"] .cal-weekdays{
   font: 9px var(--sans);
   letter-spacing: 0.02em;
 }
-
-html[data-theme="winui"] .cal-grid {
+html[data-theme="winui"] .cal-grid{
   gap: 4px;
 }
-
-html[data-theme="winui"] .cal-day {
+html[data-theme="winui"] .cal-day{
   height: 48px;
   border-radius: 4px;
   border-color: transparent;
   background: rgba(255, 255, 255, 0.025);
 }
-
-html[data-theme="winui"] .cal-day.is-red {
+html[data-theme="winui"] .cal-day.is-red{
   border-color: rgba(255, 123, 123, 0.22);
   background: rgba(255, 123, 123, 0.11);
 }
-
-html[data-theme="winui"] .cal-day.is-black {
+html[data-theme="winui"] .cal-day.is-black{
   border-color: rgba(143, 208, 255, 0.24);
   background: rgba(143, 208, 255, 0.11);
 }
-
-html[data-theme="winui"] .cal-day.is-today {
+html[data-theme="winui"] .cal-day.is-today{
   border-color: rgba(96, 205, 255, 0.7);
 }
-
-html[data-theme="winui"] .cal-day.is-selected.is-red,
-html[data-theme="winui"] .cal-day.is-selected.is-black {
+html[data-theme="winui"] .cal-day.is-selected.is-red, html[data-theme="winui"] .cal-day.is-selected.is-black{
   border-color: var(--win-accent);
   box-shadow: inset 0 0 0 1px var(--win-accent);
 }
-
-html[data-theme="winui"] .cal-num {
+html[data-theme="winui"] .cal-num{
   font: 10px var(--mono);
 }
-
-html[data-theme="winui"] .cal-mark {
+html[data-theme="winui"] .cal-mark{
   font: 8px var(--sans);
 }
-
-html[data-theme="winui"] .cal-legend {
+html[data-theme="winui"] .cal-legend{
   font: 9px var(--sans);
 }
-
-html[data-theme="winui"] .detail-head {
+html[data-theme="winui"] .detail-head{
   font: 8px var(--sans);
 }
-
-html[data-theme="winui"] #selDayNum {
+html[data-theme="winui"] #selDayNum{
   font-family: var(--sans);
   font-weight: 600;
 }
-
-html[data-theme="winui"] #selMonthYear {
+html[data-theme="winui"] #selMonthYear{
   font: 9px var(--sans);
 }
-
-html[data-theme="winui"] .cal-detail h3 {
+html[data-theme="winui"] .cal-detail h3{
   font-family: var(--sans);
 }
-
-html[data-theme="winui"] .detail-badge {
+html[data-theme="winui"] .detail-badge{
   border-radius: 4px;
   font: 8px var(--sans);
 }
-
-html[data-theme="winui"] .d-session .w {
+html[data-theme="winui"] .d-session .w{
   font: 10px var(--mono);
 }
-
-html[data-theme="winui"] .d-session .n,
-html[data-theme="winui"] .d-session .l {
+html[data-theme="winui"] .d-session .n, html[data-theme="winui"] .d-session .l{
   font-family: var(--sans);
 }
-
-html[data-theme="winui"] .rules-grid {
+html[data-theme="winui"] .rules-grid{
   gap: 10px;
   border: 0;
   background: transparent;
 }
-
-html[data-theme="winui"] .rule-card {
+html[data-theme="winui"] .rule-card{
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 8px;
   background: #2b2b2b;
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.16);
 }
-
-html[data-theme="winui"] .card-label {
+html[data-theme="winui"] .card-label{
   font: 9px var(--sans);
   letter-spacing: 0.05em;
 }
-
-html[data-theme="winui"] .formula {
+html[data-theme="winui"] .formula{
   border-radius: 4px;
   border-color: rgba(255, 255, 255, 0.09);
   background: #1e1e1e;
   font-size: 10px;
 }
-
-html[data-theme="winui"] .rule-copy,
-html[data-theme="winui"] .rule-sub {
+html[data-theme="winui"] .rule-copy, html[data-theme="winui"] .rule-sub{
   font-size: 11px;
   line-height: 1.8;
 }
-
-html[data-theme="winui"] .map-list > div {
+html[data-theme="winui"] .map-list > div{
   padding: 9px 0;
 }
-
-html[data-theme="winui"] .notes li {
+html[data-theme="winui"] .notes li{
   font-size: 11px;
 }
-
-html[data-theme="winui"] .footer {
+html[data-theme="winui"] .footer{
   border-top-color: rgba(255, 255, 255, 0.09);
 }
-
-html[data-theme="winui"] .footer-brand {
+html[data-theme="winui"] .footer-brand{
   font-family: var(--sans);
 }
-
-html[data-theme="winui"] .footer-links a:hover {
+html[data-theme="winui"] .footer-links a:hover{
   color: var(--win-accent);
 }
-
-html[data-theme="winui"] .copy-dialog {
+html[data-theme="winui"] .copy-dialog{
   border-radius: 8px;
   background: #2b2b2b;
   border-color: rgba(255, 255, 255, 0.16);
 }
-
-html[data-theme="winui"] #copyArea {
+html[data-theme="winui"] #copyArea{
   border-radius: 4px;
   background: #1e1e1e;
 }
-
-html[data-theme="winui"] .toast {
+html[data-theme="winui"] .toast{
   border-radius: 4px;
   background: #2d2d2d;
   border-color: rgba(96, 205, 255, 0.55);
 }
-
-/* ==========================================================================
-   Liquid Glass
-   ========================================================================== */
-
-html[data-theme="glass"] {
-  --bg: #070b18;
-  --bg-soft: rgba(255, 255, 255, 0.045);
-  --panel: rgba(255, 255, 255, 0.09);
-  --line: rgba(255, 255, 255, 0.18);
-  --line-strong: rgba(255, 255, 255, 0.34);
-  --text: #ffffff;
-  --muted: rgba(255, 255, 255, 0.84);
-  --dim: rgba(255, 255, 255, 0.62);
-  --red: #ff8192;
-  --red-soft: #ffc0c8;
-  --red-faint: rgba(255, 129, 146, 0.16);
-  --black: #9ddcff;
-  --black-soft: #d4f1ff;
-  --black-faint: rgba(157, 220, 255, 0.16);
-  --amber: #ffe08a;
-  --glass-blur: 26px;
-  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI Variable Display", "Segoe UI", "PingFang SC", "Microsoft YaHei UI", sans-serif;
-  --mono: "SF Mono", "Cascadia Mono", "Cascadia Code", "Consolas", monospace;
-}
-
-html[data-theme="glass"] body {
-  background: #070b18;
-}
-
-html[data-theme="glass"] .bg {
-  background:
-    radial-gradient(900px 700px at 15% 10%, rgba(86, 47, 170, 0.35), transparent 65%),
-    radial-gradient(800px 600px at 85% 20%, rgba(0, 125, 170, 0.28), transparent 65%),
-    radial-gradient(900px 700px at 50% 100%, rgba(190, 40, 100, 0.22), transparent 65%),
-    #070b18;
-}
-
-html[data-theme="glass"] .bg-grid,
-html[data-theme="glass"] .bg-glow {
-  display: none;
-}
-
-html[data-theme="glass"] .bg-noise {
-  opacity: 0.025;
-  mix-blend-mode: soft-light;
-}
-
-html[data-theme="glass"] .bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at 54% 38%, transparent 34%, rgba(4, 6, 18, 0.16) 72%, rgba(4, 6, 18, 0.4) 100%),
-    linear-gradient(180deg, rgba(4, 7, 20, 0.02), rgba(4, 7, 20, 0.12));
-}
-
-html[data-theme="glass"] .topbar {
-  background: rgba(8, 12, 28, 0.52);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  backdrop-filter: blur(28px) saturate(180%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
-}
-
-html[data-theme="glass"] .brand-mark {
-  color: rgba(255, 255, 255, 0.92);
-}
-
-html[data-theme="glass"] .brand-name {
-  font: 600 13px var(--sans);
-  letter-spacing: 0.01em;
-}
-
-html[data-theme="glass"] .brand-colon {
-  color: rgba(255, 255, 255, 0.55);
-}
-
-html[data-theme="glass"] .brand-cn {
-  color: rgba(255, 255, 255, 0.5);
-  border-left-color: rgba(255, 255, 255, 0.18);
-}
-
-html[data-theme="glass"] .nav {
-  gap: 4px;
-}
-
-html[data-theme="glass"] .nav a {
-  padding: 6px 10px;
-  border-radius: 999px;
-  gap: 7px;
-  font: 12px var(--sans);
-  color: rgba(255, 255, 255, 0.62);
-}
-
-html[data-theme="glass"] .nav a span {
-  font: 8px var(--mono);
-  color: rgba(255, 255, 255, 0.38);
-}
-
-html[data-theme="glass"] .nav a:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-}
-
-html[data-theme="glass"] .nav a.is-active {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
-}
-
-html[data-theme="glass"] .nav a.is-active span {
-  color: rgba(255, 255, 255, 0.58);
-}
-
-html[data-theme="glass"] .sys {
-  font-family: var(--sans);
-  color: rgba(255, 255, 255, 0.5);
-}
-
-html[data-theme="glass"] .sys-tz {
-  color: rgba(255, 255, 255, 0.36);
-}
-
-html[data-theme="glass"] .modebar {
-  background: rgba(8, 12, 28, 0.32);
-  border-bottom-color: rgba(255, 255, 255, 0.11);
-  -webkit-backdrop-filter: blur(22px) saturate(170%);
-  backdrop-filter: blur(22px) saturate(170%);
-}
-
-html[data-theme="glass"] .modebar-inner {
-  min-height: 47px;
-  gap: 16px;
-}
-
-html[data-theme="glass"] .server-switch,
-html[data-theme="glass"] .style-switch {
-  gap: 2px;
-  padding: 3px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 999px;
-  background: rgba(10, 14, 30, 0.32);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  backdrop-filter: blur(18px) saturate(160%);
-}
-
-html[data-theme="glass"] .server-btn,
-html[data-theme="glass"] .style-btn {
-  height: 25px;
-  padding: 0 10px;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  color: rgba(255, 255, 255, 0.6);
-  font: 11px var(--sans);
-}
-
-html[data-theme="glass"] .server-btn span,
-html[data-theme="glass"] .style-btn span {
-  font: 7px var(--mono);
-  color: rgba(255, 255, 255, 0.4);
-}
-
-html[data-theme="glass"] .server-btn:hover,
-html[data-theme="glass"] .style-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-}
-
-html[data-theme="glass"] .server-btn.is-active,
-html[data-theme="glass"] .style-btn.is-active {
-  border-color: rgba(255, 255, 255, 0.26);
-  background: rgba(255, 255, 255, 0.18);
-  color: #fff;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 4px 14px rgba(0, 0, 0, 0.18);
-}
-
-html[data-theme="glass"] .server-btn.is-active span,
-html[data-theme="glass"] .style-btn.is-active span {
-  color: rgba(255, 255, 255, 0.62);
-}
-
-html[data-theme="glass"] .mode-divider {
-  background: rgba(255, 255, 255, 0.16);
-}
-
-html[data-theme="glass"] .mode-meta {
-  font: 9px var(--sans);
-  letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-html[data-theme="glass"] .mode-meta i {
-  color: rgba(255, 255, 255, 0.36);
-}
-
-html[data-theme="glass"] .mode-meta b {
-  font: 10px var(--mono);
-  color: rgba(255, 255, 255, 0.78);
-}
-
-html[data-theme="glass"] ::selection {
-  background: rgba(255, 255, 255, 0.34);
-  color: #fff;
-}
-
-html[data-theme="glass"] :focus-visible {
-  outline-color: rgba(255, 255, 255, 0.7);
-}
-
-html[data-theme="glass"] .hero {
-  grid-template-columns: minmax(0, 1fr) 400px;
-  padding: 66px 0 54px;
-}
-
-html[data-theme="glass"] .hero-main {
-  padding-right: 50px;
-  border-right: 1px solid rgba(255, 255, 255, 0.13);
-}
-
-html[data-theme="glass"] .kicker {
-  font: 10px var(--sans);
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.46);
-}
-
-html[data-theme="glass"] .kicker-line {
-  background: rgba(255, 255, 255, 0.62);
-}
-
-html[data-theme="glass"] .kicker-code {
-  color: rgba(255, 255, 255, 0.38);
-}
-
-html[data-theme="glass"] .hero-title-row {
-  margin-top: 20px;
-}
-
-html[data-theme="glass"] .hero-title-row h1 {
-  font-family: var(--sans);
-  font-size: clamp(2.55rem, 4.6vw, 4.35rem);
-  font-weight: 600;
-  letter-spacing: -0.045em;
-  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.22);
-}
-
-html[data-theme="glass"] .accent {
-  color: var(--event);
-  text-shadow: 0 0 34px var(--event-soft);
-}
-
-html[data-theme="glass"] .status-pill {
-  margin-bottom: 8px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  border-color: rgba(255, 255, 255, 0.2);
-  background: rgba(8, 12, 28, 0.34);
-  color: rgba(255, 255, 255, 0.78);
-  font: 10px var(--sans);
-  letter-spacing: 0.04em;
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  backdrop-filter: blur(18px) saturate(160%);
-}
-
-html[data-theme="glass"] .status-pill.is-live,
-html[data-theme="glass"] .status-pill.is-incoming {
-  color: var(--event);
-  border-color: var(--event-soft);
-  background: var(--event-faint);
-}
-
-html[data-theme="glass"] .hero-sub {
-  max-width: 640px;
-  margin-top: 14px;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-html[data-theme="glass"] .countdown {
-  gap: 12px;
-  margin-top: 26px;
-}
-
-html[data-theme="glass"] .cd-num {
-  font-family: var(--sans);
-  font-size: clamp(3rem, 6.4vw, 6.1rem);
-  font-weight: 600;
-  letter-spacing: -0.06em;
-  text-shadow: 0 4px 42px rgba(255, 255, 255, 0.14);
-}
-
-html[data-theme="glass"] .cd-label {
-  margin-top: 14px;
-  color: rgba(255, 255, 255, 0.4);
-  font: 8px var(--sans);
-  letter-spacing: 0.12em;
-}
-
-html[data-theme="glass"] .cd-colon {
-  color: rgba(255, 255, 255, 0.55);
-  font-size: clamp(1.4rem, 3vw, 2.9rem);
-  font-weight: 400;
-  transform: translateY(0.25em);
-}
-
-html[data-theme="glass"] .target {
-  margin-top: 22px;
-  border-top-color: rgba(255, 255, 255, 0.16);
-  color: rgba(255, 255, 255, 0.62);
-  font: 10px var(--sans);
-  letter-spacing: 0.03em;
-}
-
-html[data-theme="glass"] .target-led {
-  color: var(--event);
-}
-
-html[data-theme="glass"] .target-ms {
-  color: var(--event-soft);
-  font-family: var(--mono);
-}
-
-html[data-theme="glass"] .hero-actions {
-  margin-top: 25px;
-  gap: 9px;
-}
-
-html[data-theme="glass"] .btn {
-  height: 40px;
-  padding: 0 18px;
-  border-radius: 999px;
-  border-color: rgba(255, 255, 255, 0.22);
-  background: rgba(8, 12, 28, 0.34);
-  color: #fff;
-  font: 11px var(--sans);
-  letter-spacing: 0.02em;
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  backdrop-filter: blur(18px) saturate(160%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-html[data-theme="glass"] .btn:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(40, 46, 76, 0.48);
-}
-
-html[data-theme="glass"] .btn-primary {
-  border-color: rgba(255, 255, 255, 0.72);
-  background: rgba(255, 255, 255, 0.9);
-  color: #0b0e18;
-  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.2), inset 0 1px 0 #fff;
-}
-
-html[data-theme="glass"] .btn-primary:hover {
-  background: #fff;
-  border-color: #fff;
-  filter: none;
-}
-
-html[data-theme="glass"] .hero-foot {
-  margin-top: 28px;
-  padding-top: 13px;
-  border-top-color: rgba(255, 255, 255, 0.14);
-  color: rgba(255, 255, 255, 0.5);
-  font: 9px var(--sans);
-  letter-spacing: 0.04em;
-}
-
-html[data-theme="glass"] .hero-side {
-  padding: 24px 24px 20px;
-  border-radius: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  background:
-    linear-gradient(125deg, rgba(255, 255, 255, 0.19), transparent 31%),
-    linear-gradient(145deg, rgba(12, 16, 38, 0.64), rgba(28, 16, 54, 0.42) 58%, rgba(10, 14, 34, 0.56));
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.06);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(170%);
-  backdrop-filter: blur(var(--glass-blur)) saturate(170%);
-  overflow: hidden;
-}
-
-html[data-theme="glass"] .hero-side::before {
-  top: 0;
-  left: 9%;
-  right: 9%;
-  width: auto;
-  height: 1px;
-  border-radius: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.92), transparent);
-  box-shadow: none;
-  opacity: 0.8;
-}
-
-html[data-theme="glass"] .side-head {
-  padding-bottom: 14px;
-  border-bottom-color: rgba(255, 255, 255, 0.18);
-  color: rgba(255, 255, 255, 0.48);
-  font: 9px var(--sans);
-  letter-spacing: 0.07em;
-}
-
-html[data-theme="glass"] .next-loc {
-  padding: 22px 0 20px;
-}
-
-html[data-theme="glass"] .stone-badge {
-  border-radius: 999px;
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.09);
-  color: #fff;
-  font: 9px var(--sans);
-  letter-spacing: 0.04em;
-}
-
-html[data-theme="glass"] .next-group {
-  font: 9px var(--sans);
-  color: rgba(255, 255, 255, 0.46);
-}
-
-html[data-theme="glass"] .next-realm-en {
-  color: rgba(255, 255, 255, 0.55);
-  font: 9px var(--sans);
-  letter-spacing: 0.08em;
-  opacity: 1;
-}
-
-html[data-theme="glass"] .next-realm-row h2 {
-  font-family: var(--sans);
-  font-size: 36px;
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.2);
-}
-
-html[data-theme="glass"] .next-map-code {
-  color: rgba(255, 255, 255, 0.38);
-  font: 9px var(--mono);
-}
-
-html[data-theme="glass"] .next-area {
-  color: #fff;
-  font-size: 15px;
-}
-
-html[data-theme="glass"] .next-area::before {
-  background: rgba(255, 255, 255, 0.6);
-}
-
-html[data-theme="glass"] .next-meta {
-  border-color: rgba(255, 255, 255, 0.18);
-}
-
-html[data-theme="glass"] .next-meta div {
-  border-color: rgba(255, 255, 255, 0.18);
-}
-
-html[data-theme="glass"] .next-meta dt {
-  color: rgba(255, 255, 255, 0.42);
-  font: 8px var(--sans);
-  letter-spacing: 0.06em;
-}
-
-html[data-theme="glass"] .next-meta dd {
-  color: rgba(255, 255, 255, 0.9);
-  font: 10px var(--mono);
-}
-
-html[data-theme="glass"] .queue {
-  margin-top: 24px;
-}
-
-html[data-theme="glass"] .queue-head {
-  color: rgba(255, 255, 255, 0.46);
-  font: 9px var(--sans);
-  letter-spacing: 0.05em;
-}
-
-html[data-theme="glass"] .q-item {
-  border-bottom-color: rgba(255, 255, 255, 0.12);
-  padding: 10px 8px;
-  border-radius: 12px;
-}
-
-html[data-theme="glass"] .q-item.is-live,
-html[data-theme="glass"] .q-item.is-incoming {
-  background: rgba(255, 255, 255, 0.1);
-  border-left-color: var(--event);
-}
-
-html[data-theme="glass"] .q-idx,
-html[data-theme="glass"] .q-status {
-  font-family: var(--sans);
-  color: rgba(255, 255, 255, 0.55);
-}
-
-html[data-theme="glass"] .q-time {
-  font: 10px var(--mono);
-  color: #fff;
-}
-
-html[data-theme="glass"] .q-place {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-html[data-theme="glass"] .side-note {
-  color: rgba(255, 255, 255, 0.52);
-  font: 8px var(--sans);
-}
-
-html[data-theme="glass"] .side-note span {
-  color: rgba(255, 255, 255, 0.38);
-}
-
-html[data-theme="glass"] .telemetry {
-  margin-top: 10px;
-  padding: 12px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 999px;
-  background: rgba(8, 12, 28, 0.3);
-  color: rgba(255, 255, 255, 0.52);
-  font: 9px var(--sans);
-  letter-spacing: 0.05em;
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  backdrop-filter: blur(18px) saturate(160%);
-}
-
-html[data-theme="glass"] .section {
-  padding-top: 70px;
-}
-
-html[data-theme="glass"] .section-kicker {
-  color: rgba(255, 255, 255, 0.48);
-  font: 10px var(--sans);
-  letter-spacing: 0.08em;
-  opacity: 1;
-}
-
-html[data-theme="glass"] .section-head h2 {
-  margin-top: 7px;
-  font-family: var(--sans);
-  font-size: 33px;
-  letter-spacing: -0.04em;
-}
-
-html[data-theme="glass"] .section-en {
-  font: 10px var(--sans);
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-html[data-theme="glass"] .section-head p {
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 12px;
-  line-height: 1.8;
-}
-
-html[data-theme="glass"] .days {
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 12px;
-  border: 0;
-  background: transparent;
-}
-
-html[data-theme="glass"] .day {
-  min-height: 190px;
-  padding: 17px 15px 15px;
-  border: 1px solid rgba(255, 255, 255, 0.19);
-  border-radius: 24px;
-  background:
-    linear-gradient(132deg, rgba(255, 255, 255, 0.15), transparent 33%),
-    linear-gradient(155deg, rgba(10, 14, 34, 0.62), rgba(24, 14, 46, 0.4));
-  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.34);
-  -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 0.8)) saturate(160%);
-  backdrop-filter: blur(calc(var(--glass-blur) * 0.8)) saturate(160%);
-  overflow: hidden;
-}
-
-html[data-theme="glass"] .day.is-red {
-  background:
-    linear-gradient(132deg, rgba(255, 255, 255, 0.17), transparent 32%),
-    linear-gradient(155deg, rgba(92, 20, 36, 0.58), rgba(24, 14, 46, 0.34) 62%);
-}
-
-html[data-theme="glass"] .day.is-black {
-  background:
-    linear-gradient(132deg, rgba(255, 255, 255, 0.17), transparent 32%),
-    linear-gradient(155deg, rgba(14, 44, 70, 0.58), rgba(24, 14, 46, 0.34) 62%);
-}
-
-html[data-theme="glass"] .day.is-today {
-  background:
-    linear-gradient(132deg, rgba(255, 255, 255, 0.21), transparent 32%),
-    linear-gradient(155deg, rgba(36, 38, 86, 0.6), rgba(24, 14, 46, 0.4) 62%);
-}
-
-html[data-theme="glass"] .day.is-today {
-  border-color: rgba(255, 255, 255, 0.55);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25), 0 22px 52px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.55);
-}
-
-html[data-theme="glass"] .day.is-red::before,
-html[data-theme="glass"] .day.is-black::before {
-  top: 0;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  border-radius: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
-  opacity: 0.65;
-}
-
-html[data-theme="glass"] .day.is-today::after {
-  color: rgba(255, 255, 255, 0.5);
-  font: 7px var(--sans);
-  letter-spacing: 0.08em;
-}
-
-html[data-theme="glass"] .dow {
-  color: rgba(255, 255, 255, 0.46);
-  font: 9px var(--sans);
-  letter-spacing: 0.04em;
-}
-
-html[data-theme="glass"] .date {
-  color: rgba(255, 255, 255, 0.72);
-  font: 10px var(--mono);
-}
-
-html[data-theme="glass"] .day-flag {
-  margin-top: 16px;
-  font: 9px var(--sans);
-  letter-spacing: 0.05em;
-}
-
-html[data-theme="glass"] .day-loc {
-  color: #fff;
-  font-size: 13px;
-}
-
-html[data-theme="glass"] .day-loc .realm {
-  color: rgba(255, 255, 255, 0.58);
-  font-size: 11px;
-}
-
-html[data-theme="glass"] .day-track {
-  height: 3px;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 0.15);
-}
-
-html[data-theme="glass"] .day-seg {
-  height: 3px;
-  border-radius: 3px;
-  box-shadow: 0 0 14px var(--event-soft);
-}
-
-html[data-theme="glass"] .day-now {
-  width: 2px;
-  height: 10px;
-  background: #fff;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-}
-
-html[data-theme="glass"] .day-times {
-  color: rgba(255, 255, 255, 0.78);
-  font: 9px var(--mono);
-}
-
-html[data-theme="glass"] .calendar-wrap {
-  gap: 12px;
-  border: 0;
-  background: transparent;
-}
-
-html[data-theme="glass"] .calendar-panel,
-html[data-theme="glass"] .cal-detail {
-  padding: 26px;
-  border: 1px solid rgba(255, 255, 255, 0.19);
-  border-radius: 32px;
-  background:
-    linear-gradient(128deg, rgba(255, 255, 255, 0.15), transparent 31%),
-    linear-gradient(150deg, rgba(10, 14, 34, 0.66), rgba(24, 14, 48, 0.44));
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.32);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
-  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
-}
-
-html[data-theme="glass"] .cal-detail {
-  background:
-    linear-gradient(128deg, rgba(255, 255, 255, 0.17), transparent 31%),
-    linear-gradient(150deg, rgba(12, 15, 38, 0.7), rgba(26, 15, 52, 0.48));
-}
-
-html[data-theme="glass"] .cal-head .cal-arrow,
-html[data-theme="glass"] .cal-today {
-  border-radius: 999px;
-  border-color: rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.7);
-  font-family: var(--sans);
-}
-
-html[data-theme="glass"] #calYear {
-  color: rgba(255, 255, 255, 0.44);
-  font: 10px var(--sans);
-}
-
-html[data-theme="glass"] #calMonth {
-  font-family: var(--sans);
-  font-size: 27px;
-}
-
-html[data-theme="glass"] .cal-weekdays {
-  color: rgba(255, 255, 255, 0.52);
-  font: 9px var(--sans);
-  letter-spacing: 0.03em;
-}
-
-html[data-theme="glass"] .cal-grid {
-  gap: 5px;
-}
-
-html[data-theme="glass"] .cal-day {
-  height: 49px;
-  border-radius: 14px;
-  border-color: transparent;
-  background: rgba(255, 255, 255, 0.04);
-  color: rgba(255, 255, 255, 0.72);
-}
-
-html[data-theme="glass"] .cal-day.is-red {
-  border-color: rgba(255, 255, 255, 0.16);
-  background: rgba(150, 42, 66, 0.38);
-}
-
-html[data-theme="glass"] .cal-day.is-black {
-  border-color: rgba(255, 255, 255, 0.16);
-  background: rgba(24, 78, 112, 0.4);
-}
-
-html[data-theme="glass"] .cal-day.is-red:hover,
-html[data-theme="glass"] .cal-day.is-black:hover {
-  border-color: rgba(255, 255, 255, 0.42);
-  background: rgba(80, 86, 130, 0.44);
-}
-
-html[data-theme="glass"] .cal-day.is-today {
-  border-color: rgba(255, 255, 255, 0.58);
-}
-
-html[data-theme="glass"] .cal-day.is-selected.is-red,
-html[data-theme="glass"] .cal-day.is-selected.is-black {
-  border-color: rgba(255, 255, 255, 0.86);
-  background: rgba(255, 255, 255, 0.18);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-html[data-theme="glass"] .cal-num {
-  font: 10px var(--mono);
-}
-
-html[data-theme="glass"] .cal-mark {
-  font: 8px var(--sans);
-  color: rgba(255, 255, 255, 0.7);
-}
-
-html[data-theme="glass"] .cal-line {
-  background: rgba(255, 255, 255, 0.7);
-}
-
-html[data-theme="glass"] .cal-legend {
-  border-top-color: rgba(255, 255, 255, 0.16);
-  color: rgba(255, 255, 255, 0.58);
-  font: 9px var(--sans);
-}
-
-html[data-theme="glass"] .legend-dot.today {
-  border-color: rgba(255, 255, 255, 0.7);
-}
-
-html[data-theme="glass"] .detail-head {
-  border-bottom-color: rgba(255, 255, 255, 0.18);
-  color: rgba(255, 255, 255, 0.42);
-  font: 8px var(--sans);
-}
-
-html[data-theme="glass"] #selDayNum {
-  font-family: var(--sans);
-  font-weight: 600;
-}
-
-html[data-theme="glass"] #selMonthYear {
-  color: rgba(255, 255, 255, 0.45);
-  font: 9px var(--sans);
-}
-
-html[data-theme="glass"] .cal-detail h3 {
-  font-family: var(--sans);
-}
-
-html[data-theme="glass"] .detail-badge {
-  border-radius: 999px;
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  font: 8px var(--sans);
-}
-
-html[data-theme="glass"] .d-session {
-  border-bottom-color: rgba(255, 255, 255, 0.12);
-}
-
-html[data-theme="glass"] .d-session .w {
-  font: 10px var(--mono);
-  color: #fff;
-}
-
-html[data-theme="glass"] .d-session .n,
-html[data-theme="glass"] .d-session .l {
-  font-family: var(--sans);
-  color: rgba(255, 255, 255, 0.58);
-}
-
-html[data-theme="glass"] .detail-note {
-  color: rgba(255, 255, 255, 0.56);
-  font: 8px var(--sans);
-}
-
-html[data-theme="glass"] .rules-grid {
-  gap: 12px;
-  border: 0;
-  background: transparent;
-}
-
-html[data-theme="glass"] .rule-card {
-  padding: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.19);
-  border-radius: 28px;
-  background:
-    linear-gradient(128deg, rgba(255, 255, 255, 0.14), transparent 30%),
-    linear-gradient(150deg, rgba(10, 14, 34, 0.64), rgba(24, 14, 48, 0.42));
-  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
-  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
-}
-
-html[data-theme="glass"] .card-label {
-  color: rgba(255, 255, 255, 0.58);
-  font: 9px var(--sans);
-  letter-spacing: 0.07em;
-}
-
-html[data-theme="glass"] .formula {
-  border-radius: 18px;
-  border-color: rgba(255, 255, 255, 0.16);
-  background: rgba(4, 8, 22, 0.46);
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 10px;
-}
-
-html[data-theme="glass"] .rule-copy,
-html[data-theme="glass"] .rule-sub {
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 11px;
-}
-
-html[data-theme="glass"] .slot-table th,
-html[data-theme="glass"] .slot-table td {
-  border-bottom-color: rgba(255, 255, 255, 0.12);
-}
-
-html[data-theme="glass"] .slot-table td {
-  color: rgba(255, 255, 255, 0.78);
-}
-
-html[data-theme="glass"] .slot-table td span {
-  color: #fff;
-}
-
-html[data-theme="glass"] .map-list {
-  border-top-color: rgba(255, 255, 255, 0.16);
-}
-
-html[data-theme="glass"] .map-list > div,
-html[data-theme="glass"] .notes li {
-  border-bottom-color: rgba(255, 255, 255, 0.12);
-}
-
-html[data-theme="glass"] .notes {
-  border-top-color: rgba(255, 255, 255, 0.16);
-}
-
-html[data-theme="glass"] .notes li {
-  color: rgba(255, 255, 255, 0.68);
-}
-
-html[data-theme="glass"] .footer {
-  border-top-color: rgba(255, 255, 255, 0.16);
-}
-
-html[data-theme="glass"] .footer-brand {
-  color: rgba(255, 255, 255, 0.85);
-  font-family: var(--sans);
-}
-
-html[data-theme="glass"] .map-list em {
-  color: rgba(255, 255, 255, 0.55);
-}
-
-html[data-theme="glass"] .footer p,
-html[data-theme="glass"] .footer-links a {
-  color: rgba(255, 255, 255, 0.55);
-}
-
-html[data-theme="glass"] .footer-links a:hover {
-  color: #fff;
-}
-
-html[data-theme="glass"] .footer-meta {
-  border-top-color: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.36);
-}
-
-html[data-theme="glass"] .footer-meta a {
-  color: rgba(255, 255, 255, 0.48);
-}
-
-html[data-theme="glass"] .footer-meta a:hover {
-  color: #fff;
-}
-
-html[data-theme="glass"] .copy-dialog {
-  border-radius: 28px;
-  border-color: rgba(255, 255, 255, 0.3);
-  background: rgba(9, 12, 28, 0.82);
-  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.34);
-  -webkit-backdrop-filter: blur(38px) saturate(180%);
-  backdrop-filter: blur(38px) saturate(180%);
-}
-
-html[data-theme="glass"] .copy-dialog-head {
-  border-bottom-color: rgba(255, 255, 255, 0.18);
-  color: rgba(255, 255, 255, 0.65);
-}
-
-html[data-theme="glass"] .copy-hint {
-  color: rgba(255, 255, 255, 0.55);
-}
-
-html[data-theme="glass"] #copyArea {
-  border-radius: 16px;
-  border-color: rgba(255, 255, 255, 0.16);
-  background: rgba(4, 8, 22, 0.52);
-  color: rgba(255, 255, 255, 0.82);
-}
-
-html[data-theme="glass"] .toast {
-  border-radius: 999px;
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(9, 12, 28, 0.8);
-  color: #fff;
-  -webkit-backdrop-filter: blur(22px) saturate(170%);
-  backdrop-filter: blur(22px) saturate(170%);
-}
-
-html[data-theme="winui"] .footer p {
+html[data-theme="winui"] .footer p{
   color: #a5a5a5;
 }
-
-html[data-theme="winui"] .footer-links a {
+html[data-theme="winui"] .footer-links a{
   color: #9a9a9a;
 }
-
-html[data-theme="winui"] .footer-meta {
+html[data-theme="winui"] .footer-meta{
   color: #8f8f8f;
 }
-
-html[data-theme="winui"] .footer-meta a {
+html[data-theme="winui"] .footer-meta a{
   color: #9a9a9a;
 }
-
-html[data-theme="winui"] .footer-meta a:hover {
+html[data-theme="winui"] .footer-meta a:hover{
   color: var(--win-accent);
 }
-
-html[data-theme="winui"] .day.is-empty .day-loc,
-html[data-theme="winui"] .day.is-empty .day-times,
-html[data-theme="winui"] .day.is-empty .day-flag {
+html[data-theme="winui"] .day.is-empty .day-loc, html[data-theme="winui"] .day.is-empty .day-times, html[data-theme="winui"] .day.is-empty .day-flag{
   color: #8f8f8f;
 }
-
-html[data-theme="winui"] .day-filler,
-html[data-theme="glass"] .day-filler {
+html[data-theme="winui"] .day-filler{
   background: transparent;
 }
-
-html[data-theme="winui"] .cal-day.is-empty,
-html[data-theme="glass"] .cal-day.is-empty {
+html[data-theme="winui"] .cal-day.is-empty{
   border-color: transparent;
   background: transparent;
 }
-
-html[data-theme="winui"] .cal-day {
+html[data-theme="winui"] .cal-day{
   color: #b8b8b8;
 }
-
-html[data-theme="winui"] .cal-weekdays,
-html[data-theme="winui"] .cal-legend {
+html[data-theme="winui"] .cal-weekdays, html[data-theme="winui"] .cal-legend{
   color: #9a9a9a;
 }
-
-html[data-theme="winui"] .detail-note {
+html[data-theme="winui"] .detail-note{
   color: #9a9a9a;
 }
-
-html[data-theme="winui"] .rule-sub {
+html[data-theme="winui"] .rule-sub{
   color: #9a9a9a;
 }
-
-html[data-theme="winui"] .map-list code {
+html[data-theme="winui"] .map-list code{
   color: #9a9a9a;
 }
-
-html[data-theme="winui"] .map-list em {
+html[data-theme="winui"] .map-list em{
   color: #858585;
 }
-
-html[data-theme="winui"] .slot-table th {
+html[data-theme="winui"] .slot-table th{
   color: #9a9a9a;
 }
-
-html[data-theme="glass"] .day.is-empty .day-loc,
-html[data-theme="glass"] .day.is-empty .day-times,
-html[data-theme="glass"] .day.is-empty .day-flag {
-  color: rgba(255, 255, 255, 0.42);
-}
-
-@media (max-width: 980px) {
-  html[data-theme="winui"] .hero {
+@media (max-width: 980px){html[data-theme="winui"] .hero{
     grid-template-columns: 1fr;
   }
-
-  html[data-theme="winui"] .hero-main {
+html[data-theme="winui"] .hero-main{
     padding-right: 0;
     border-right: 0;
-  }
-
-  html[data-theme="glass"] .hero {
-    grid-template-columns: 1fr;
-  }
-
-  html[data-theme="glass"] .hero-main {
-    padding-right: 0;
-    border-right: 0;
-  }
-}
-
-@media (max-width: 840px) {
-  html[data-theme="winui"] .days,
-  html[data-theme="glass"] .days {
+  }}
+@media (max-width: 840px){html[data-theme="winui"] .days{
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-
-
-@media (max-width: 900px) {
-  .modebar-inner {
+  }}
+@media (max-width: 900px){.modebar-inner{
     flex-wrap: wrap;
     gap: 6px 12px;
     padding: 6px 0;
   }
-
-  .mode-meta {
+.mode-meta{
     margin-left: 0;
   }
-
-  .mode-meta .mode-hint {
+.mode-meta .mode-hint{
+    display: none;
+  }}
+@media (max-width: 680px){.mode-divider{
     display: none;
   }
-}
-
-@media (max-width: 680px) {
-  html[data-theme="glass"] {
-    --glass-blur: 14px;
-  }
-
-  .mode-divider {
-    display: none;
-  }
-
-  .style-btn,
-  html[data-theme="winui"] .style-btn,
-  html[data-theme="glass"] .style-btn {
+.style-btn, html[data-theme="winui"] .style-btn{
     padding: 0 6px;
     font-size: 8px;
   }
-
-  .style-btn span,
-  html[data-theme="winui"] .style-btn span,
-  html[data-theme="glass"] .style-btn span {
+.style-btn span, html[data-theme="winui"] .style-btn span{
     font-size: 6px;
   }
-
-  html[data-theme="winui"] .modebar-inner,
-  html[data-theme="glass"] .modebar-inner {
+html[data-theme="winui"] .modebar-inner{
     padding: 6px 0;
   }
-
-  html[data-theme="winui"] .hero,
-  html[data-theme="glass"] .hero {
+html[data-theme="winui"] .hero{
     padding-top: 44px;
   }
-
-  html[data-theme="winui"] .hero-main,
-  html[data-theme="glass"] .hero-main {
+html[data-theme="winui"] .hero-main{
     padding-right: 0;
   }
-
-  html[data-theme="winui"] .hero-title-row h1,
-  html[data-theme="glass"] .hero-title-row h1 {
+html[data-theme="winui"] .hero-title-row h1{
     font-size: clamp(2.1rem, 9.2vw, 3rem);
   }
-
-  html[data-theme="winui"] .cd-num,
-  html[data-theme="glass"] .cd-num {
+html[data-theme="winui"] .cd-num{
     font-size: clamp(2.6rem, 13vw, 4.3rem);
   }
-
-  html[data-theme="winui"] .days,
-  html[data-theme="glass"] .days {
+html[data-theme="winui"] .days{
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
-
-  html[data-theme="winui"] .day,
-  html[data-theme="glass"] .day {
+html[data-theme="winui"] .day{
     min-height: 158px;
   }
-
-  html[data-theme="winui"] .calendar-panel,
-  html[data-theme="winui"] .cal-detail,
-  html[data-theme="glass"] .calendar-panel,
-  html[data-theme="glass"] .cal-detail {
+html[data-theme="winui"] .calendar-panel, html[data-theme="winui"] .cal-detail{
     padding: 18px 15px;
     border-radius: 22px;
   }
-
-  html[data-theme="winui"] .cal-day,
-  html[data-theme="glass"] .cal-day {
+html[data-theme="winui"] .cal-day{
     height: 42px;
   }
-
-  html[data-theme="winui"] .rule-card,
-  html[data-theme="glass"] .rule-card {
+html[data-theme="winui"] .rule-card{
     padding: 18px 16px;
     border-radius: 20px;
   }
-
-  html[data-theme="winui"] .telemetry,
-  html[data-theme="glass"] .telemetry {
+html[data-theme="winui"] .telemetry{
     border-radius: 16px;
     padding: 10px 12px;
     overflow-x: auto;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html[data-theme="glass"] .glass-canvas {
-    opacity: 1;
-  }
-}
-
-/* Liquid-glass WebGL panels (drawn by glass-bg.js) */
-html[data-theme="glass"].glass-liquid-ready .bg::after {
-  display: none;
-}
-
-html[data-theme="glass"].glass-liquid-ready .hero-side,
-html[data-theme="glass"].glass-liquid-ready .telemetry,
-html[data-theme="glass"].glass-liquid-ready .day,
-html[data-theme="glass"].glass-liquid-ready .calendar-panel,
-html[data-theme="glass"].glass-liquid-ready .cal-detail,
-html[data-theme="glass"].glass-liquid-ready .rule-card {
-  background: transparent !important;
-  -webkit-backdrop-filter: none !important;
-  backdrop-filter: none !important;
-}
-
-.glass-engine {
-  display: none;
-}
-
-html[data-theme="glass"].glass-liquid-ready .glass-engine {
-  display: inline-flex;
-  align-items: center;
-  margin-left: 6px;
-  padding: 2px 6px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.56);
-  font: 8px var(--mono);
-  letter-spacing: 0.08em;
-}
-
-@media (max-width: 680px) {
-  html[data-theme="glass"].glass-liquid-ready .glass-engine {
-    margin-left: 4px;
-    padding: 1px 5px;
-    font-size: 7px;
-  }
-}
+  }}

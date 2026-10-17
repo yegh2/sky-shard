@@ -1733,10 +1733,10 @@
 
   function readTheme() {
     const q = new URLSearchParams(location.search).get('theme');
-    if (q === 'terminal' || q === 'winui' || q === 'glass') return q;
+    if (q === 'terminal' || q === 'winui') return q;
     try {
       const saved = localStorage.getItem('sky-shard-theme');
-      if (saved === 'terminal' || saved === 'winui' || saved === 'glass') return saved;
+      if (saved === 'terminal' || saved === 'winui') return saved;
     } catch (err) {
       // Ignore storage restrictions.
     }
@@ -1760,7 +1760,7 @@
   }
 
   function applyTheme(theme, persist) {
-    if (theme !== 'terminal' && theme !== 'winui' && theme !== 'glass') theme = 'terminal';
+    if (theme !== 'terminal' && theme !== 'winui') theme = 'terminal';
     state.theme = theme;
     document.documentElement.dataset.theme = theme;
 
@@ -1772,12 +1772,7 @@
 
     const themeColor = document.getElementById('metaThemeColor');
     if (themeColor) {
-      themeColor.setAttribute('content', theme === 'winui' ? '#202020' : theme === 'glass' ? '#070b18' : '#070809');
-    }
-
-    if (window.SkyGlass) {
-      if (theme === 'glass') window.SkyGlass.start();
-      else window.SkyGlass.stop();
+      themeColor.setAttribute('content', theme === 'winui' ? '#202020' : '#070809');
     }
 
     if (theme === 'winui') ensureWinUIComponents();

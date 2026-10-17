@@ -14,7 +14,7 @@
         const q = new URLSearchParams(location.search).get('theme');
         const saved = localStorage.getItem('sky-shard-theme');
         const theme = q || saved || 'terminal';
-        if (['terminal', 'winui', 'glass'].includes(theme)) {
+        if (['terminal', 'winui'].includes(theme)) {
           document.documentElement.dataset.theme = theme;
         }
       } catch (err) {
@@ -22,14 +22,13 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.4.0">
-  <link rel="stylesheet" href="themes.css?v=2.4.0">
+  <link rel="stylesheet" href="styles.css?v=2.5.0">
+  <link rel="stylesheet" href="themes.css?v=2.5.0">
 </head>
 <body data-server="cn" data-stone="red">
   <a class="skip-link" href="#now">跳到主要内容</a>
 
   <div class="bg" aria-hidden="true">
-    <canvas class="glass-canvas" id="glassCanvas"></canvas>
     <div class="bg-grid"></div>
     <div class="bg-glow"></div>
     <div class="bg-noise"></div>
@@ -74,14 +73,12 @@
       <div class="style-switch" role="group" aria-label="界面风格">
         <button class="style-btn is-active" type="button" data-style="terminal" title="终端风格" aria-label="终端风格"><span>01</span>终端</button>
         <button class="style-btn" type="button" data-style="winui" title="WinUI 3 风格" aria-label="WinUI 3 风格"><span>02</span>WinUI3</button>
-        <button class="style-btn" type="button" data-style="glass" title="液态玻璃风格" aria-label="液态玻璃风格"><span>03</span>玻璃</button>
       </div>
       <div class="winui-controls" id="winuiControls" aria-label="WinUI 组件控制条"></div>
       <div class="mode-meta">
         <span><i>GAME DAY</i><b id="gameDayLabel">—</b></span>
         <span><i>LOCAL</i><b id="localZoneLabel">—</b></span>
         <span class="mode-hint" id="modeHint">UTC+8 自然日</span>
-        <span class="glass-engine">WEBGL</span>
       </div>
     </div>
   </div>
@@ -299,11 +296,11 @@
       </div>
     </div>
     <div class="footer-meta">
-      <span>v2.4.0</span>
+      <span>v2.5.0</span>
       <span>VANILLA JS</span>
       <span>0 DEPENDENCIES</span>
       <span id="footerTz">TZ —</span>
-      <span>STYLE REF · <a href="https://github.com/Furry-Xiyi/WinUIonWeb" target="_blank" rel="noreferrer">WINUI</a> / <a href="https://github.com/martin65536/liquid-glass-webgl" target="_blank" rel="noreferrer">GLASS</a> · <a href="LICENSE" target="_blank" rel="noreferrer">GPL-3.0</a></span>
+      <span>STYLE REF · <a href="https://github.com/Furry-Xiyi/WinUIonWeb" target="_blank" rel="noreferrer">WINUI</a> · <a href="LICENSE" target="_blank" rel="noreferrer">GPL-3.0</a></span>
       <span>© <span id="footerYear">2026</span></span>
     </div>
   </footer>
@@ -322,7 +319,6 @@
   <p class="sr-only" id="srStatus" role="status" aria-live="polite"></p>
   <noscript><div class="noscript">此工具需要 JavaScript 才能在本地计算红黑石时间。</div></noscript>
 
-  <script src="glass-bg.js?v=2.4.0"></script>
-  <script src="app.js?v=2.4.0"></script>
+  <script src="app.js?v=2.5.0"></script>
 </body>
 </html>

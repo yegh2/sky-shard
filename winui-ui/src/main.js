@@ -33,8 +33,7 @@ function mountControls(el) {
         ]),
         group([
           toggle('终端', state.theme.value === 'terminal', () => window.SkyUI?.switchTheme('terminal')),
-          toggle('WinUI3', state.theme.value === 'winui', () => window.SkyUI?.switchTheme('winui')),
-          toggle('玻璃', state.theme.value === 'glass', () => window.SkyUI?.switchTheme('glass'))
+          toggle('WinUI3', state.theme.value === 'winui', () => window.SkyUI?.switchTheme('winui'))
         ])
       ]);
     }

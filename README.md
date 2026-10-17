@@ -5,7 +5,7 @@
 **在线使用：** <https://yegh2.github.io/sky-shard/>  
 **国际服直达：** <https://yegh2.github.io/sky-shard/?server=intl>
 
-![三套主题](preview/themes.png)
+![两套主题](preview/themes.png)
 
 ## 功能
 
@@ -16,7 +16,7 @@
 - 一键复制场次；自动复制失败时弹出手动复制窗口
 - 导出未来 90 个游戏日的 `.ics` 日历（含提前 10 分钟提醒）
 - 国服 / 国际服切换，状态保存在 URL 与 localStorage
-- **三套界面风格**：终端 / WinUI 3 / 液态玻璃，随时切换
+- **两套界面风格**：终端 / WinUI 3，随时切换
 - 键盘快捷键：`C` 复制下一场、`T` 回到今天、`[` / `]` 切换月份
 
 ## 界面风格
@@ -25,17 +25,12 @@
 
 - `?theme=terminal` — 默认的黑底终端风格
 - `?theme=winui` — WinUI 3 / Fluent 深色；服务器/风格切换与操作按钮是真实打包的 **WinUIonWeb** Vue 控件
-- `?theme=glass` — 液态玻璃，WebGL 实时背景 + 逐面板模糊、折射与边缘高光
 
 ![WinUI 3](preview/winui.png)
-
-![Liquid Glass](preview/glass.png)
 
 终端黑石状态：[preview/black.png](preview/black.png) · 移动端：[preview/mobile.png](preview/mobile.png)
 
 WinUI 3 主题使用 [WinUIonWeb](https://github.com/Furry-Xiyi/WinUIonWeb) 的 `ToggleButton` / `Button` 组件（Vue 3，GPL-3.0），由 `winui-ui/` 构建为 `winui-controls.js` / `winui-controls.css`，仅在切换到 WinUI 主题时按需加载。组件包约 887 KB（gzip 259 KB）。
-
-液态玻璃的视觉参考是 [liquid-glass-webgl](https://github.com/martin65536/liquid-glass-webgl)（AGPL-3.0）。它的完整玻璃/文字/交互都绘制在单个 WebGL Canvas 中，没有可嵌入普通 DOM 的组件边界；本站保留 DOM 语义与可访问性，用独立的 `glass-bg.js` WebGL 渲染器逐帧采样背景，为每个面板绘制模糊、边缘折射、色散和镜面高光；顶栏与按钮仍保留 CSS 玻璃层。没有复制上游渲染器代码。
 
 详细署名、依赖版本与许可证见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
@@ -127,8 +122,7 @@ python -m http.server 4173
 
 - `index.html` — 页面结构
 - `styles.css` — 基础视觉、双类型变量与响应式布局
-- `themes.css` — 终端 / WinUI 3 / 液态玻璃三套主题
-- `glass-bg.js` — 液态玻璃主题的 WebGL 背景
+- `themes.css` — 终端 / WinUI 3 两套主题
 - `app.js` — 双服务器时间计算、主题切换、渲染、日历与导出
 - `winui-controls.js` / `winui-controls.css` — 由 `winui-ui/` 构建的 WinUIonWeb 组件包（按需加载）
 - `winui-ui/` — WinUI 组件的 Vue 入口、Vite 配置与锁文件
