@@ -1,5 +1,5 @@
 import { createApp, h, ref } from 'vue';
-import WinUIOnWeb, { Button, ToggleButton } from 'winuionweb';
+import { Button, ToggleButton } from 'winuionweb';
 import 'winuionweb/style.css';
 import './island.css';
 
@@ -39,7 +39,6 @@ function mountControls(el) {
       ]);
     }
   });
-  app.use(WinUIOnWeb, { locale: 'zh-CN' });
   app.mount(el);
 }
 
@@ -65,7 +64,6 @@ function mountActions(el) {
       ]);
     }
   });
-  app.use(WinUIOnWeb, { locale: 'zh-CN' });
   app.mount(el);
 }
 
